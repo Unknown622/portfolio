@@ -1,6 +1,7 @@
 .footer {
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
+    -moz-backdrop-filter: blur(10px);
     background-color: rgba(0, 0, 0, 0.4);
     height: 10rem;
     width: 100%;
@@ -34,11 +35,4 @@ a {
 
 .footer-buttons {
     padding-left: 4%;
-}
-
-@media (max-width: 500px) {
-    .footer-buttons {
-        padding-left: 4%;
-        padding-top: 1.5rem;
-    }
 }

@@ -7,6 +7,7 @@ import EmailRoundedIcon from '@mui/icons-material/EmailRounded'
 
 function Contact(props) {
     let [copySuccess, setCopySuccess] = useState(false)
+    let [open, setOpen] = useState(false)
 
     // Sets timeout with input delay
     function timeout(delay) {
@@ -14,15 +15,17 @@ function Contact(props) {
     }
 
     return (
-        <Tooltip title={copySuccess === true ? "Success" : "Copy to clipboard"} placement="left" onClick={() => {
-            navigator.clipboard.writeText(props.text).then(async () => {
-                setCopySuccess(true)
-                await timeout(2000)
-                setCopySuccess(false)
-            })
-        }} className="contact-copy"
-        >
-            <Stack direction="row" alignItems="center">
+        <Tooltip title={copySuccess === true ? "Copied" : "Copy to clipboard"} placement="left" className="contact-copy"
+                 open={open} onOpen={() => setOpen(true)} onClose={() => setOpen(false)}>
+            <Stack direction="row" alignItems="center" onClick={() => {
+                navigator.clipboard.writeText(props.text).then(async () => {
+                    setCopySuccess(true)
+                    setOpen(true)
+                    await timeout(2000)
+                    setCopySuccess(false)
+                    setOpen(false)
+                })
+            }}>
                 {props.children}
                 <Typography variant="subtitle2" style={{marginLeft: "0.4rem"}}>
                     {props.text}
@@ -33,7 +36,10 @@ function Contact(props) {
 }
 
 export default function Menubar(props) {
-    const PAGES = [{"title": 'About Me', "scroll": props.topRef}, {"title": 'Experience', "scroll": props.experienceRef},
+    const PAGES = [{"title": 'About Me', "scroll": props.topRef}, {
+        "title": 'Experience',
+        "scroll": props.experienceRef
+    },
         {"title": 'Connect', "scroll": props.footerRef}]
     const PHONE_NUMBER = "(763) 301-2865"
     const EMAIL = "vlz12@yahoo.com"
@@ -59,7 +65,9 @@ export default function Menubar(props) {
         <Contact text={EMAIL}><EmailRoundedIcon/></Contact>
     </div>
     const buttons = PAGES.map((page, index) =>
-        <button key={index} className={"menubar-button"} onClick={() => {scrollTo(page["scroll"])}}>
+        <button key={index} className={"menubar-button"} onClick={() => {
+            scrollTo(page["scroll"])
+        }}>
             {page["title"]}
         </button>
     )
@@ -68,7 +76,7 @@ export default function Menubar(props) {
     function scrollTo(ref) {
         setMobileMenu("")
         menuRef.current.checked = false
-        ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        ref.current.scrollIntoView({behavior: 'smooth', block: 'start'})
     }
 
     // Toggles mobile menu
@@ -97,7 +105,7 @@ export default function Menubar(props) {
                 </div>
                 <div className="menubar-menu-toggle mobile">
                     <input type="checkbox" style={{display: "none"}} id="menubar-menu-toggle"
-                           onChange={toggleMobileMenu} ref={menuRef} />
+                           onChange={toggleMobileMenu} ref={menuRef}/>
                     <label htmlFor="menubar-menu-toggle" className="hamburger">
                         <span className="bun bun-top">
                             <span className="bun-crust bun-crust-top"/>
@@ -122,7 +130,9 @@ export default function Menubar(props) {
                             "menubar-button" + mobileMenu
                             : "menubar-button pop-in" + mobileMenu}
                                 style={{animationDelay: 0.25 + (index / 4) + "s"}}
-                            onClick={() => {scrollTo(page["scroll"])}}>
+                                onClick={() => {
+                                    scrollTo(page["scroll"])
+                                }}>
                             {page["title"]}
                         </button>
                     )}

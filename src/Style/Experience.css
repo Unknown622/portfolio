@@ -19,11 +19,10 @@
 }
 
 .timeline::before {
-    border: 0.1rem solid transparent;
     background-image: linear-gradient(white 0%, #b3cde0 10%, #b3cde0 90%, white 100%);
     content: '';
     position: absolute;
-    width: 0.02rem;
+    width: 0.25rem;
     right: 50%;
     height: calc(100% - 4.58rem);
     top: 2.19rem;
