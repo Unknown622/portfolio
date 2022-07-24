@@ -1,0 +1,44 @@
+.footer {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 10rem;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+a {
+    color: white;
+}
+
+.footer-icon {
+    color: white !important;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    border-radius: 50%;
+    transition: transform ease 1s !important;
+    height: 28px;
+    width: 30px;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    padding-top: 2px;
+    border: 0.001rem solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.footer-icon:hover {
+    transform: translateY(-5px);
+}
+
+.footer-buttons {
+    padding-left: 4%;
+}
+
+@media (max-width: 500px) {
+    .footer-buttons {
+        padding-left: 4%;
+        padding-top: 1.5rem;
+    }
+}
