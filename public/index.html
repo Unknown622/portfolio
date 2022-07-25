@@ -1,14 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/Favicon/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+<head>
+    <meta charset="utf-8"/>
+    <link rel="icon" href="%PUBLIC_URL%/Favicon/favicon.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json"/>
     <title>Vincent Zimmer</title>
-  </head>
-  <body style="margin: 0; padding: 0; width: 100%;">
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root" style="max-width: 100%;"></div>
-  </body>
+</head>
+<body style="margin: 0; padding: 0; width: 100%; min-height: 100%;" onload="redirect()">
+<noscript>
+    <style>
+        .gradient {
+            background: linear-gradient(-45deg, #011f4b, #6497b1, #005073, #1ebbd7, #107dac);
+            background-size: 800% 800%;
+            animation: Gradient 120s ease infinite;
+        }
+
+        @keyframes Gradient {
+            0% {
+                background-position: 0 50%
+            }
+            50% {
+                background-position: 100% 50%
+            }
+            100% {
+                background-position: 0 50%
+            }
+        }
+
+        .content {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            align-content: space-around;
+            display: grid;
+        }
+
+        @supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+            .message {
+                -webkit-backdrop-filter: blur(10px);
+                backdrop-filter: blur(10px);
+                background-color: rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        .elevated {
+            box-shadow: 0 4px 2px 0 rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 0, 0, 0.25);
+        }
+
+        .message {
+            color: white;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 20px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 2rem;
+            padding: 8rem 0.5rem;
+            width: 40%;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        button.info {
+            margin-top: 4%;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 16px;
+            color: white;
+            background: rgba(255, 255, 255, 0.35);
+            border-radius: 5px;
+            height: 2.2rem;
+            border: none;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            transition: transform ease 1s;
+        }
+
+        button.info:active {
+            transform: translateY(4px);
+        }
+
+        .info-icon {
+            height: 16px;
+            transform: translateY(2px);
+        }
+
+        @media (max-width: 500px) {
+            .message {
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+                width: 70%;
+            }
+        }
+    </style>
+    <div class="content gradient">
+        <div style="position: relative">
+            <div class="message elevated">
+                <b>Please enable JavaScript to enter this site</b>
+                <br/>
+                <a href="https://www.enable-javascript.com/" target="_blank" rel="noreferrer">
+                    <button class="info elevated">
+                    More info
+                    <img class="info-icon" src="%PUBLIC_URL%/info.png" alt="info">
+                </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</noscript>
+<div id="root" style="max-width: 100%;"></div>
+<script>
+    function redirect() {
+        if (window.location.pathname !== "/")
+            window.location.pathname = "/";
+    }
+</script>
+</body>
 </html>
