@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 // import reportWebVitals from './reportWebVitals'
-import {BrowserRouter, Route, Routes} from "react-router-dom"
+import {BrowserRouter, Route, Routes, Navigate} from "react-router-dom"
 import Home from "./Pages/Home"
 import {createTheme, ThemeProvider} from "@mui/material"
 import 'animate.css'
@@ -25,6 +25,7 @@ root.render(
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Home />}/>
+                    <Route path="*" element={<Navigate to="/" />}/>
                 </Routes>
             </BrowserRouter>
         </ThemeProvider>
