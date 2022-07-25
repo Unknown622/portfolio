@@ -4,7 +4,7 @@
 }
 
 .menubar {
-    background-color: rgba(0, 0, 0, 0.65);
+    background-color: rgba(0, 0, 0, 0.8);
     width: 100%;
     position: fixed;
     top: 0;
@@ -164,8 +164,16 @@
 @media (max-width: 800px) {
     span.menu-mobile {
         height: 15.5rem !important;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+    span.menu-mobile {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
         background-color: rgba(0, 0, 0, 0.5);
     }
+}
 
     div.menu-mobile {
         display: block !important;

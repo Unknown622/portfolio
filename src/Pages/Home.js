@@ -17,10 +17,14 @@ export default function Home() {
     useEffect(() => {
         // Add scroll listener
         // Start gradient on scroll
-        window.addEventListener("scroll", () => {setGradient(PLAY_GRADIENT)})
+        window.addEventListener("scroll", () => {
+            setGradient(PLAY_GRADIENT)
+        })
         // Add scroll stop listener
         // Pause gradient on scroll stop
-        window.addEventListener('scroll', debounce(() => {setGradient(PAUSE_GRADIENT)}, 500))
+        window.addEventListener('scroll', debounce(() => {
+            setGradient(PAUSE_GRADIENT)
+        }, 500))
     })
 
     // Get scroll refs for menubar
@@ -34,24 +38,23 @@ export default function Home() {
 
     return (
         <div className={"content " + gradient} ref={topRef}>
-            <Menubar footerRef={footerRef} topRef={topRef} experienceRef={experienceRef} />
-            <Container  style={{paddingTop: "4rem", animationFillMode: "both"}}>
+            <Menubar footerRef={footerRef} topRef={topRef} experienceRef={experienceRef}/>
+            <Container style={{paddingTop: "4rem", animationFillMode: "both"}}>
                 <AboutMe>
-                    I have about a year of professional experience as a software engineer at Ecumen where I
+                    I have nearly a year of professional experience as a Software Engineer at Ecumen where I
                     worked on ABXTracker. I started at Ecumen as an intern working on ABXTracker but when the internship
-                    was over they decided to keep me on part-time while I was still in school. ABXTracker is used in
-                    nursing
-                    homes to track infections as well as antibiotic and drug use. I mostly fixed bug, made enhancements,
-                    and added new features.
+                    finished they decided to keep me on part-time while I was still in school. ABXTracker is used in
+                    nursing homes to track infections as well as antibiotic and drug use. I mostly fixed bugs,
+                    applied enhancements, and implemented new features.
                     <br/>
-                    While working at Ecumen I also completed my capstone at St. Cloud State University where I
-                    worked as part of a group in an agile environment as well as communicating directly with the
-                    stakeholders. For this project my group was tasked with creating a web app that used machine
-                    learning to count vehicles on a road and get the road condition by using a camera.
+                    While working at Ecumen I also completed my capstone at Saint Cloud State University where I
+                    worked as part of a team in an agile environment as well as communicating directly with the
+                    stakeholders. My team was tasked with creating a web app that used machine learning to count
+                    vehicles on a road and get the road condition by using a camera.
                 </AboutMe>
-                <Experience getScroll={getExperienceRef} />
+                <Experience getScroll={getExperienceRef}/>
             </Container>
-            <Footer getScroll={getFooterScroll} />
+            <Footer getScroll={getFooterScroll}/>
         </div>
     )
 }

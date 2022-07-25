@@ -1,6 +1,6 @@
 import React from 'react'
 import TimelineItem from "./Timeline Item"
-import GitHubIcon from '@mui/icons-material/GitHub';
+import GitHubIcon from '@mui/icons-material/GitHub'
 
 export default function TimelineProject(props) {
     let title = (props.gitURL === undefined ? "Project: " : "")

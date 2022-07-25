@@ -12,7 +12,7 @@ export default function TimelineItem(props) {
             <div className={"timeline-item"}>
                 {props.social === undefined ? title :
                     <a href={props.url === undefined ? "" : props.url} target="_blank" rel="noreferrer"
-                       style={{textDecoration: "none", display: "flex"}}>
+                       style={{display: "flex", width: "fit-content"}}>
                         <div style={{marginRight: "0.5rem"}}>{props.social}</div>
                         {title}
                     </a>
