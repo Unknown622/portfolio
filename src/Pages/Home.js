@@ -41,7 +41,7 @@ export default function Home() {
             <Menubar footerRef={footerRef} topRef={topRef} experienceRef={experienceRef}/>
             <Container style={{paddingTop: "4rem", animationFillMode: "both"}}>
                 <AboutMe>
-                    I have nearly a year of professional experience as a Software Engineer at Ecumen where I
+                    I have over a year of professional experience as a Software Engineer at Ecumen where I
                     worked on ABXTracker. I started at Ecumen as an intern working on ABXTracker but when the internship
                     finished they decided to keep me on part-time while I was still in school. ABXTracker is used in
                     nursing homes to track infections as well as antibiotic and drug use. I mostly fixed bugs,

@@ -8,10 +8,10 @@ import TimelineProject from "../Components/Timeline Project"
 
 const languages = ["React (1 year)", "JavaScript (2 years)", "ES6 (1 year)", "Java (3 years)", "HTML (2 years)",
     "CSS (2 years)", "SQL (2 years)", "Node (1 year)", "Flutter (1 year)", "PHP (1 year)", "C++ (2 years)",
-    "JQuery (1 year)", "Python (2 years)"]
-const skills = ["AJAX", "Android", "Android Studio", "Eclipse", "Figma", "GitHub", "Google Suite", "IntelliJ IDEs",
+    "JQuery (1 year)", "Python (2 years)", "JSON (1 year)", "XML (1 year)"]
+const skills = ["Agile", "AJAX", "Android", "Android Studio", "Eclipse", "Figma", "GitHub", "Google Suite", "IntelliJ IDEs",
     "iOS", "Jira", "Linux", "MacOS", "MaterialUI", "Microsoft Office", "Swing GUI", "Tensorflow",
-    "UML", "Windows", "Wordpress", "Xcode", "Zoom"]
+    "UML", "VS Code", "Windows", "Wordpress", "Xcode", "Zoom"]
 
 export default function Experience(props) {
     let scrollRef = useRef()

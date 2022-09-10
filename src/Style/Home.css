@@ -11,11 +11,11 @@
 }
 
 .gradient {
-    background: linear-gradient(-45deg, #011f4b, #6497b1, #005073, #1ebbd7, #107dac);
+    background: linear-gradient(-45deg, #334b6e, #6497b1, #005073, #1ebbd7, #107dac);
     background-size: 800% 800%;
-    -webkit-animation: Gradient 5s ease infinite;
-    -moz-animation: Gradient 5s ease infinite;
-    animation: Gradient 5s ease infinite;
+    -webkit-animation: Gradient 30s ease infinite;
+    -moz-animation: Gradient 30s ease infinite;
+    animation: Gradient 30s ease infinite;
 }
 
 .paused {
@@ -41,4 +41,8 @@
     padding: 1.5rem 1.5rem 1rem 1.5rem !important;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
+}
+
+.elevated {
+    box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px, rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
 }

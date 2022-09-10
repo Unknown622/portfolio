@@ -1,49 +1,19 @@
 import React, {useRef, useState} from "react"
 import Typography from '@mui/material/Typography'
 import "../Style/Menubar.css"
-import {Box, Stack, Tooltip} from "@mui/material"
+import {Box, Stack} from "@mui/material"
 import LocalPhoneRoundedIcon from '@mui/icons-material/LocalPhoneRounded'
 import EmailRoundedIcon from '@mui/icons-material/EmailRounded'
+import ToolTip from "../Components/ToolTip"
 
-function Contact(props) {
-    let [copySuccess, setCopySuccess] = useState(false)
-    let [open, setOpen] = useState(false)
-
-    // Sets timeout with input delay
-    function timeout(delay) {
-        return new Promise(res => setTimeout(res, delay));
-    }
-
-    return (
-        <Tooltip title={copySuccess === true ? "Copied" : "Copy to clipboard"} placement="left" className="contact-copy"
-                 open={open} onOpen={() => setOpen(true)} onClose={() => setOpen(false)}>
-            <Stack direction="row" alignItems="center" onClick={() => {
-                navigator.clipboard.writeText(props.text).then(async () => {
-                    setCopySuccess(true)
-                    setOpen(true)
-                    await timeout(2000)
-                    setCopySuccess(false)
-                    setOpen(false)
-                })
-            }}>
-                {props.children}
-                <Typography variant="subtitle2" style={{marginLeft: "0.4rem"}}>
-                    {props.text}
-                </Typography>
-            </Stack>
-        </Tooltip>
-    )
-}
+const PHONE_NUMBER = "(763) 301-2865"
+const EMAIL = "vlz12@yahoo.com"
+const NAME = "VINCENT ZIMMER"
 
 export default function Menubar(props) {
-    const PAGES = [{"title": 'About Me', "scroll": props.topRef}, {
-        "title": 'Experience',
-        "scroll": props.experienceRef
-    },
+    const PAGES = [{"title": 'About Me', "scroll": props.topRef},
+        {"title": 'Experience', "scroll": props.experienceRef},
         {"title": 'Connect', "scroll": props.footerRef}]
-    const PHONE_NUMBER = "(763) 301-2865"
-    const EMAIL = "vlz12@yahoo.com"
-    const NAME = "VINCENT ZIMMER"
     const SHOW_MOBILE_MENU = " menu-mobile"
     let [mobileMenu, setMobileMenu] = useState("")
     let menuRef = useRef()
@@ -61,8 +31,22 @@ export default function Menubar(props) {
         </Typography>
     </div>
     const contact = <div className={mobileMenu === "" ? "menubar-contact" : "menubar-contact pop-in"}>
-        <Contact text={PHONE_NUMBER}><LocalPhoneRoundedIcon/></Contact>
-        <Contact text={EMAIL}><EmailRoundedIcon/></Contact>
+        <ToolTip title={"Copy to clipboard"} clipboard={PHONE_NUMBER} placement={"left"}>
+            <Stack direction="row" alignItems="center" className="contact-copy">
+                <LocalPhoneRoundedIcon/>
+                <Typography variant="subtitle2" style={{marginLeft: "0.4rem"}}>
+                    {PHONE_NUMBER}
+                </Typography>
+            </Stack>
+        </ToolTip>
+        <ToolTip title={"Copy to clipboard"} clipboard={EMAIL} placement={"left"}>
+            <Stack direction="row" alignItems="center" className="contact-copy">
+                <EmailRoundedIcon/>
+                <Typography variant="subtitle2" style={{marginLeft: "0.4rem"}}>
+                    {EMAIL}
+                </Typography>
+            </Stack>
+        </ToolTip>
     </div>
     const buttons = PAGES.map((page, index) =>
         <button key={index} className={"menubar-button"} onClick={() => {

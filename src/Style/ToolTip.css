@@ -1,0 +1,150 @@
+.tooltip-container {
+    position: relative;
+}
+
+.tooltip-button {
+    cursor: pointer;
+}
+
+.tooltip {
+    position: absolute;
+    border-radius: 0.25rem;
+    background: rgba(255, 255, 255, 0.65);
+    padding: 0.25rem 0.5rem;
+    width: fit-content;
+    height: fit-content;
+    overflow: hidden;
+    white-space: nowrap;
+    color: black;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    margin: 0;
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.43;
+    letter-spacing: 0.01071em;
+}
+
+.tooltip-text.hidden {
+    opacity: 0;
+}
+
+.slide-in-from-top {
+    animation: slide-in-from-top 200ms ease-in-out;
+}
+
+@keyframes slide-in-from-top {
+    from {
+        transform: translateY(-0.5rem);
+        opacity: 0.1;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.slide-out-from-bottom {
+    animation: slide-out-from-bottom 200ms ease-in-out;
+}
+
+@keyframes slide-out-from-bottom {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-0.5rem);
+        opacity: 0.1;
+    }
+}
+
+.slide-in-from-bottom {
+    animation: slide-in-from-bottom 200ms ease-in-out;
+}
+
+@keyframes slide-in-from-bottom {
+    from {
+        transform: translateY(0.5rem);
+        opacity: 0.1;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.slide-out-from-top {
+    animation: slide-out-from-top 200ms ease-in-out;
+}
+
+@keyframes slide-out-from-top {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(0.5rem);
+        opacity: 0.1;
+    }
+}
+
+.slide-in-from-left {
+    animation: slide-in-from-left 200ms ease-in-out;
+}
+
+@keyframes slide-in-from-left {
+    from {
+        transform: translateX(-0.5rem);
+        opacity: 0.1;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.slide-out-from-right {
+    animation: slide-out-from-right 200ms ease-in-out;
+}
+
+@keyframes slide-out-from-right {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-0.5rem);
+        opacity: 0.1;
+    }
+}
+
+.slide-in-from-right {
+    animation: slide-in-from-right 200ms ease-in-out;
+}
+
+@keyframes slide-in-from-right {
+    from {
+        transform: translateX(0.5rem);
+        opacity: 0.1;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.slide-out-from-left {
+    animation: slide-out-from-left 200ms ease-in-out;
+}
+
+@keyframes slide-out-from-left {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(0.5rem);
+        opacity: 0.1;
+    }
+}
