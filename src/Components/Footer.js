@@ -1,7 +1,7 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useEffect, useRef} from 'react'
 import "../Style/Footer.css"
 import Header from "./Header";
-import {Container, Divider, Grid, Stack, Tooltip} from "@mui/material"
+import {Container, Divider, Grid, Stack} from "@mui/material"
 import GitHubIcon from '@mui/icons-material/GitHub'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import LocalPhoneRoundedIcon from '@mui/icons-material/LocalPhoneRounded'
