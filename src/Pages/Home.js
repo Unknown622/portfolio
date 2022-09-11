@@ -1,10 +1,10 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react'
 import "../Style/Home.css"
-import Menubar from "../Components/Menubar.js"
 import AboutMe from "../Sections/About Me.js"
 import Experience from "../Sections/Experience"
 import Footer from "../Components/Footer";
 import {Container, debounce} from "@mui/material"
+import Menubar from "../Components/Menubar";
 
 export default function Home() {
     const PLAY_GRADIENT = "gradient"
@@ -38,7 +38,7 @@ export default function Home() {
 
     return (
         <div className={"content " + gradient} ref={topRef}>
-            <Menubar footerRef={footerRef} topRef={topRef} experienceRef={experienceRef}/>
+            <Menubar footerRef={footerRef} topRef={topRef} experienceRef={experienceRef} />
             <Container style={{paddingTop: "4rem", animationFillMode: "both"}}>
                 <AboutMe>
                     I have over a year of professional experience as a Software Engineer at Ecumen where I

@@ -1,5 +1,6 @@
 import React, {useCallback, useLayoutEffect, useRef, useState} from 'react'
 import "../Style/ToolTip.css"
+import copy from "copy-to-clipboard"
 
 export default function ToolTip(props) {
     const ORIG_TITLE = (props.title === undefined ? "" : props.title) // Keep original tooltip title
@@ -51,33 +52,51 @@ export default function ToolTip(props) {
                 setY(container.offsetTop - (tooltip.getBoundingClientRect().height) - 12 + "px")
                 break
         }
+        // Override x position
+        if (props.overrideX !== undefined) {setX(props.overrideX + "px")}
+        // Override y position
+        if (props.overrideY !== undefined) {setY(props.overrideY + "px")}
         setUpdateNeeded(false) // Placement updated
-    }, [PLACEMENT])
+    }, [PLACEMENT, props.overrideX, props.overrideY])
 
     useLayoutEffect(function () {
         // Only update tooltip placement when active and needed (like when text changes)
-        if (active && updateNeeded) {updatePlacement()}
+        if (active && updateNeeded) {
+            updatePlacement()
+        }
         // Add window resize listener while active
         if (active) {
             // Close tooltip on resize
-            window.addEventListener('resize', () => {setActive(false)})
+            window.addEventListener('resize', () => {
+                setActive(false)
+            })
         }
     }, [active, updateNeeded, updatePlacement])
 
-    // Handles click on tooltip container
+// Handles click on tooltip container
     function handleClick() {
         if (CLIPBOARD !== "") {
             // Copy to clipboard on click then show copied message
-            navigator.clipboard.writeText(CLIPBOARD).then(async () => {
-                await showMessage("Copied")
-            })
+            let error = false
+            try {
+                copy(CLIPBOARD)
+            } // Try copying to clipboard
+            catch (e) { // Error
+                console.error(e)
+                showMessage("Error :(")
+                error = true
+            }
+            // Only show success if no error
+            if (!error) {
+                showMessage("Copied")
+            }
         } else if (LINK !== "") {
             // Redirect to link on click
             window.open(LINK)
         }
     }
 
-    // Show a temporary message on the tooltip
+// Show a temporary message on the tooltip
     async function showMessage(message) {
         await hideTooltip()
         setTitle(message)
@@ -87,7 +106,7 @@ export default function ToolTip(props) {
         setTitle(ORIG_TITLE)
     }
 
-    // Show the tooltip
+// Show the tooltip
     function showTooltip() {
         setActive(true) // Add tooltip to DOM but still hidden
         setUpdateNeeded(true) // Need to update placement of tooltip
@@ -108,7 +127,7 @@ export default function ToolTip(props) {
         }
     }
 
-    // Hide the tooltip
+// Hide the tooltip
     async function hideTooltip() {
         // Play animation
         switch (PLACEMENT) {
@@ -131,7 +150,8 @@ export default function ToolTip(props) {
 
     return (
         <div ref={containerRef} onMouseEnter={showTooltip} onMouseLeave={hideTooltip} onClick={handleClick}
-             className={(CLIPBOARD !== "" || LINK !== "" ? " tooltip-button" : "")}>
+             className={(props.containerClass === undefined ? "" : props.containerClass)
+                 + (CLIPBOARD !== "" || LINK !== "" ? " tooltip-button" : "")}>
             {props.children}
             {active &&
                 <div style={{left: xCoor, top: yCoor}} className={"tooltip" + className} ref={tooltipRef}>{title}</div>

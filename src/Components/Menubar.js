@@ -1,127 +1,101 @@
-import React, {useRef, useState} from "react"
-import Typography from '@mui/material/Typography'
+import React, {useEffect, useRef, useState} from "react"
 import "../Style/Menubar.css"
-import {Box, Stack} from "@mui/material"
-import LocalPhoneRoundedIcon from '@mui/icons-material/LocalPhoneRounded'
-import EmailRoundedIcon from '@mui/icons-material/EmailRounded'
-import ToolTip from "../Components/ToolTip"
+import Typography from "@mui/material/Typography"
+import ToolTip from "./ToolTip";
+import LocalPhoneRoundedIcon from "@mui/icons-material/LocalPhoneRounded";
+import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
 
+const NAME = "VINCENT ZIMMER"
 const PHONE_NUMBER = "(763) 301-2865"
 const EMAIL = "vlz12@yahoo.com"
-const NAME = "VINCENT ZIMMER"
 
 export default function Menubar(props) {
     const PAGES = [{"title": 'About Me', "scroll": props.topRef},
         {"title": 'Experience', "scroll": props.experienceRef},
         {"title": 'Connect', "scroll": props.footerRef}]
-    const SHOW_MOBILE_MENU = " menu-mobile"
-    let [mobileMenu, setMobileMenu] = useState("")
-    let menuRef = useRef()
-    const logo = <div className="menubar-logo">
-        <Typography variant="h5" noWrap
-                    sx={{
-                        fontFamily: 'monospace',
-                        fontWeight: 700,
-                        letterSpacing: '.3rem',
-                        color: 'white',
-                        textDecoration: 'none'
-                    }}
-        >
-            {NAME}
-        </Typography>
-    </div>
-    const contact = <div className={mobileMenu === "" ? "menubar-contact" : "menubar-contact pop-in"}>
-        <ToolTip title={"Copy to clipboard"} clipboard={PHONE_NUMBER} placement={"left"}>
-            <Stack direction="row" alignItems="center" className="contact-copy">
-                <LocalPhoneRoundedIcon/>
-                <Typography variant="subtitle2" style={{marginLeft: "0.4rem"}}>
-                    {PHONE_NUMBER}
-                </Typography>
-            </Stack>
-        </ToolTip>
-        <ToolTip title={"Copy to clipboard"} clipboard={EMAIL} placement={"left"}>
-            <Stack direction="row" alignItems="center" className="contact-copy">
-                <EmailRoundedIcon/>
-                <Typography variant="subtitle2" style={{marginLeft: "0.4rem"}}>
-                    {EMAIL}
-                </Typography>
-            </Stack>
-        </ToolTip>
-    </div>
-    const buttons = PAGES.map((page, index) =>
-        <button key={index} className={"menubar-button"} onClick={() => {
-            scrollTo(page["scroll"])
-        }}>
-            {page["title"]}
-        </button>
-    )
+    const SHOW_MOBILE_MENU = " menu-mobile-active"
+    const menuRef = useRef()
+    const [mobileMenu, setMobileMenu] = useState("")
 
-    // Auto scrolls to input ref
-    function scrollTo(ref) {
-        setMobileMenu("")
-        menuRef.current.checked = false
-        ref.current.scrollIntoView({behavior: 'smooth', block: 'start'})
-    }
+    // Hide mobile menu when window is resized
+    useEffect(() => {
+        if (mobileMenu !== "") {
+            // Add window resize listener when mobile menu is open
+            window.addEventListener('resize', closeMobileMenu)
+        }
+    }, [mobileMenu])
 
     // Toggles mobile menu
     function toggleMobileMenu(event) {
-        // Open menu
         if (event.target.checked) {
-            setMobileMenu(SHOW_MOBILE_MENU)
-        }
-        // Close menu
-        else {
-            setMobileMenu("")
+            setMobileMenu(SHOW_MOBILE_MENU) // Open menu
+        } else {
+            setMobileMenu("") // Close menu
         }
     }
 
+    // Auto scrolls to input ref
+    function scrollTo(ref) {
+        closeMobileMenu()
+        ref.current.scrollIntoView({behavior: 'smooth', block: 'start'})
+    }
+
+    // Closes mobile menu
+    function closeMobileMenu() {
+        setMobileMenu("")
+        menuRef.current.checked = false
+    }
+
     return (
-        <span className={"menubar" + mobileMenu}>
-            <Stack direction="row" justifyContent="space-between" alignItems="center" className="menubar-grid">
-                <div className="desktop">
-                    <Stack spacing={2} justifyContent="flex-start" alignItems="center" direction="row">
-                        {logo}
-                        <Stack direction="row" spacing={1} justifyContent="flex-start" alignItems="center"
-                               className="menubar-buttons">
-                            {buttons}
-                        </Stack>
-                    </Stack>
-                </div>
-                <div className="menubar-menu-toggle mobile">
-                    <input type="checkbox" style={{display: "none"}} id="menubar-menu-toggle"
-                           onChange={toggleMobileMenu} ref={menuRef}/>
-                    <label htmlFor="menubar-menu-toggle" className="hamburger">
+        <div className={"menubar" + mobileMenu}>
+            <div className="menubar-menu-toggle menubar-mobile">
+                <input type="checkbox" style={{display: "none"}} id="menubar-menu-toggle"
+                       onChange={toggleMobileMenu} ref={menuRef}/>
+                <label htmlFor="menubar-menu-toggle" className="hamburger">
                         <span className="bun bun-top">
                             <span className="bun-crust bun-crust-top"/>
                         </span>
-                        <span className="bun bun-bottom">
+                    <span className="bun bun-bottom">
                             <span className="bun-crust bun-crust-bottom"/>
                         </span>
-                    </label>
-                </div>
-                <Box className="mobile">
-                    {logo}
-                </Box>
-                <Box className="spacer"/>
-                {contact}
-            </Stack>
-            <div id="menu-mobile" className={mobileMenu}>
-                {contact}
-                <Stack direction="column" justifyContent="space-evenly" alignItems="flex-start" spacing={1}
-                       className="menubar-buttons">
-                    {PAGES.map((page, index) =>
-                        <button key={index} className={mobileMenu === "" ?
-                            "menubar-button" + mobileMenu
-                            : "menubar-button pop-in" + mobileMenu}
-                                style={{animationDelay: 0.25 + (index / 4) + "s"}}
-                                onClick={() => {
-                                    scrollTo(page["scroll"])
-                                }}>
-                            {page["title"]}
-                        </button>
-                    )}
-                </Stack>
+                </label>
             </div>
-        </span>
+            <Typography className="menubar-logo" variant="h5" noWrap
+                        sx={{
+                            fontFamily: 'monospace',
+                            fontWeight: 700,
+                            letterSpacing: '.3rem',
+                            color: 'white',
+                            textDecoration: 'none'
+                        }}
+            >
+                {NAME}
+            </Typography>
+            <nav className={"menubar-buttons" + mobileMenu}>
+                {PAGES.map((page, index) =>
+                    <button key={index} className={mobileMenu === "" ? "menubar-button" : "menubar-button pop-in"}
+                            style={{animationDelay: 0.25 + (index / 4) + "s"}} onClick={() => {scrollTo(page["scroll"])}}>
+                        {page["title"]}
+                    </button>
+                )}
+            </nav>
+            <div className={"menubar-contact" + mobileMenu}>
+                <ToolTip containerClass={mobileMenu === "" ? "menubar-contact-copy" : "menubar-contact-copy pop-in"}
+                         title={"Copy to clipboard"} clipboard={PHONE_NUMBER} placement={"left"}>
+                    <LocalPhoneRoundedIcon/>
+                    <Typography variant="subtitle2" style={{marginLeft: "0.25rem"}}>
+                        {PHONE_NUMBER}
+                    </Typography>
+                </ToolTip>
+                <ToolTip containerClass={mobileMenu === "" ? "menubar-contact-copy" : "menubar-contact-copy pop-in"}
+                         overrideY={mobileMenu === "" || window.innerWidth > 550 ? undefined : -2}
+                         title={"Copy to clipboard"} clipboard={EMAIL} placement={"left"}>
+                    <EmailRoundedIcon/>
+                    <Typography variant="subtitle2" style={{marginLeft: "0.25rem"}}>
+                        {EMAIL}
+                    </Typography>
+                </ToolTip>
+            </div>
+        </div>
     )
 }

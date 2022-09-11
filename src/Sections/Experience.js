@@ -25,54 +25,50 @@ export default function Experience(props) {
         <div className={"section"} ref={scrollRef}>
             <Header>Experience</Header>
             <Container maxWidth="lg" className="timeline">
-                <TimelineYear>
-                    2018
-                </TimelineYear>
-                <TimelineItem title={"Graduated High School"} date={"Jun 2018"}/>
-                <TimelineItem title={"Starbucks Barista at Target"} date={"Aug 2018 to Dec 2020"}/>
-                <TimelineProject title={"Undergraduate Applied Research at SCSU"} date={"Fall 2019"}>
-                    Part of an agile team that developed a mobile app that allowed users to request lawn and snow
-                    services from a local provider (similar to Uber)
-                    <br/>Languages/Tools: Flutter, AndroidStudio
-                </TimelineProject>
-                <TimelineItem title={"Starbucks Shift Lead at Target"} date={"Dec 2020 to Present"}>
-                    • Fulfill manager on duty responsibilities<br/>
-                    • Certified Starbucks trainer<br/>
-                    • Coach, lead, and mentor team members
-                </TimelineItem>
-                <TimelineProject title={"Emoji Translator"} date={"Spring 2022"}
-                                 gitURL={"https://github.com/Unknown622/Emoji-Translator"}>
-                    Part of team for Human Computer Interaction course that made an Android app that translated
-                    text to emojis with an emphasis on frontend
-                    <br/>Languages/Tools: Java, AndroidStudio
-                </TimelineProject>
-                <TimelineItem title={"Intern Software Engineer at Ecumen"} date={"Jun 2021 to Sep 2021"}/>
+                <TimelineYear>2022</TimelineYear>
                 <TimelineItem title={"Part-Time Software Engineer at Ecumen"} date={"Sep 2021 to Present"}>
                     Work on proprietary ABXTracker website for long-term healthcare facilities which enables users to
                     track patient antibiotics and infections
                     <br/>Languages/Tools: Wordpress, HTML, JavaScript, CSS, PHP, SQL
                 </TimelineItem>
-                <TimelineProject title={"Netflix Recommender"} date={"Fall 2021"}>
-                    Part of team for Data Mining course which made a website that recommended Netflix titles based off
-                    the similarity of descriptions in a dataset
-                    Languages/Tools: HTML, JavaScript, CSS, Python, Flask
+                <TimelineProject title={"This Website"} date={"Jul 2022"}
+                                 gitURL={"https://github.com/Unknown622/portfolio"}>
+                    Languages/Tools: React, ES6, MaterialUI
                 </TimelineProject>
+                <TimelineItem title={"Graduated at SCSU"} date={"Jul 2022"}>
+                    Graduated at Saint Cloud State University with a bachelor's degree in Software Engineering
+                </TimelineItem>
                 <TimelineProject title={"Capstone at SCSU"} date={"Aug 2021 to May 2022"}>
                     Part of an agile team that developed a desktop and mobile website that counted and classified
                     vehicles on a road and obtained road conditions using a camera for Upper Great Plains Transportation
                     Institute at NDSU
                     <br/>Languages/Tools: React, Python, ES6, Tensorflow
                 </TimelineProject>
-                <TimelineItem title={"Graduated at SCSU"} date={"Jul 2022"}>
-                    Graduated at Saint Cloud State University with a bachelor's degree in Software Engineering
-                </TimelineItem>
-                <TimelineProject title={"This Website"} date={"Jul 2022"}
-                                 gitURL={"https://github.com/Unknown622/portfolio"}>
-                    Languages/Tools: React, ES6, MaterialUI
+                <TimelineProject title={"Netflix Recommender"} date={"Fall 2021"}>
+                    Part of team for Data Mining course which made a website that recommended Netflix titles based off
+                    the similarity of descriptions in a dataset
+                    Languages/Tools: HTML, JavaScript, CSS, Python, Flask
                 </TimelineProject>
-                <TimelineYear>
-                    2022
-                </TimelineYear>
+                <TimelineItem title={"Intern Software Engineer at Ecumen"} date={"Jun 2021 to Sep 2021"}/>
+                <TimelineProject title={"Emoji Translator"} date={"Spring 2022"}
+                                 gitURL={"https://github.com/Unknown622/Emoji-Translator"}>
+                    Part of team for Human Computer Interaction course that made an Android app that translated
+                    text to emojis with an emphasis on frontend
+                    <br/>Languages/Tools: Java, AndroidStudio
+                </TimelineProject>
+                <TimelineItem title={"Starbucks Shift Lead at Target"} date={"Dec 2020 to Present"}>
+                    • Fulfill manager on duty responsibilities<br/>
+                    • Certified Starbucks trainer<br/>
+                    • Coach, lead, and mentor team members
+                </TimelineItem>
+                <TimelineProject title={"Undergraduate Applied Research at SCSU"} date={"Fall 2019"}>
+                    Part of an agile team that developed a mobile app that allowed users to request lawn and snow
+                    services from a local provider (similar to Uber)
+                    <br/>Languages/Tools: Flutter, AndroidStudio
+                </TimelineProject>
+                <TimelineItem title={"Starbucks Barista at Target"} date={"Aug 2018 to Dec 2020"}/>
+                <TimelineItem title={"Graduated High School"} date={"Jun 2018"}/>
+                <TimelineYear>2018</TimelineYear>
             </Container>
             <Grid container direction="row" justifyContent="space-around" alignItems="stretch"
                   columns={{xs: 1, md: 12}} style={{paddingTop: "1rem"}}>
