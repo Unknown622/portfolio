@@ -12,7 +12,7 @@ export default function AboutMe(props) {
                 </Grid>
                 <Grid item xs={9}>
                     <div className={"about-text elevated"}>
-                        <Typography paragraph variant={"body1"} style={{color: "white"}}>
+                        <Typography paragraph variant={"body1"} style={{color: "white", margin: "0"}}>
                             {props.children}
                         </Typography>
                     </div>

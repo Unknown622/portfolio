@@ -18,13 +18,10 @@ export default function TimelineItem(props) {
                     </a>
                 }
                 <Typography variant={"body1"} style={{color: "white"}}>
-                    <b>{props.date}</b>
-                </Typography>
-                <Typography variant={"body1"} style={{color: "white"}}>
+                    <b>{props.date}</b><br/>
                     {props.children}
                 </Typography>
             </div>
-            {/*<span className={"timeline-item-connect"}/>*/}
         </div>
     )
 }

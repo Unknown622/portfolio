@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from 'react'
 import "../Style/Footer.css"
-import Header from "./Header";
+import Header from "./Header"
 import {Container, Divider, Grid, Stack, Typography} from "@mui/material"
 import GitHubIcon from '@mui/icons-material/GitHub'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
@@ -10,7 +10,7 @@ import DownloadRoundedIcon from '@mui/icons-material/DownloadRounded'
 import {saveAs} from "file-saver"
 import Resume from '../Resume.pdf'
 import ToolTip from "./ToolTip"
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
 
 const GITHUB_URL = "https://github.com/Unknown622"
 const LINKEDIN_URL = "https://www.linkedin.com/in/vincent-zimmer-29776a202/"

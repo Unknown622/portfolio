@@ -46,6 +46,10 @@ export default function Home() {
                     worked as part of a team in an agile environment as well as communicating directly with the
                     stakeholders. My team was tasked with creating a web app that used machine learning to count
                     vehicles on a road and get the road condition by using a camera.
+                    <br/>
+                    I'm enthusiastic to learn new technologies and to collaborate with teammates for a successful project.
+                    I thrive in a fast-paced dynamic environment knowing my work will make a difference, and I keep the
+                    end-user in mind to achieve the best experience.
                 </AboutMe>
                 <Experience getScroll={getExperienceRef}/>
             </Container>
