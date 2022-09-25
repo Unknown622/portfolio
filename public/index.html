@@ -5,9 +5,11 @@
     <link rel="icon" href="%PUBLIC_URL%/Favicon/favicon.png"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json"/>
+    <script src="%PUBLIC_URL%/Gradient.js"></script>
+    <meta name="theme-color" content="#14202E">
     <title>Vincent Zimmer</title>
 </head>
-<body style="margin: 0; padding: 0; width: 100%; min-height: 100%;">
+<body>
 <noscript>
     <style>
         .gradient {
@@ -47,7 +49,7 @@
         }
 
         .elevated {
-            box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 5px -1px, rgba(0, 0, 0, 0.14) 0px 6px 10px 0px, rgba(0, 0, 0, 0.12) 0px 1px 18px 0px;
+            box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px, rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
         }
 
         .message {
@@ -104,14 +106,67 @@
                 <br/>
                 <a href="https://www.enable-javascript.com/" target="_blank" rel="noreferrer">
                     <button class="info elevated">
-                    More info
-                    <img class="info-icon" src="%PUBLIC_URL%/info.png" alt="info">
-                </button>
+                        More info
+                        <img class="info-icon" src="%PUBLIC_URL%/info.png" alt="info">
+                    </button>
                 </a>
             </div>
         </div>
     </div>
 </noscript>
-<div id="root" style="max-width: 100%;"></div>
+<canvas id="gradient"></canvas>
+<div id="root"></div>
 </body>
+<script>
+    // Gradient from: https://kevinhufnagl.com/how-to-stripe-website-gradient-effect/
+    // Initialize gradient
+    let gradient = new Gradient()
+    gradient.initGradient('#gradient')
+    gradient.amp = 0
+
+    window.addEventListener("load", async () => {
+        // Wait for gradient to initialize then pause it
+        await new Promise(res => setTimeout(res, 250)).then(() => {
+            gradient.pause()
+        })
+    })
+    let timer = null;
+    window.addEventListener("scroll", () => {
+        // Play gradient on scroll
+        gradient.play()
+        if (timer !== null) {
+            clearTimeout(timer)
+        }
+        timer = setTimeout(() => {
+            // Pause scroll 500ms after scrolling stopped
+            gradient.pause()
+        }, 500)
+    }, false)
+</script>
+<style>
+    #gradient {
+        position: fixed;
+        z-index: -1000;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+        min-height: calc(100% + 20px);
+        min-width: calc(100% + 20px);
+        /* Gradient Colors */
+        --gradient-color-1: #334b6e;
+        --gradient-color-2: #6497b1;
+        --gradient-color-3: #005073;
+        --gradient-color-4: #1ebbd7;
+        --gradient-color-5: #107dac;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+</style>
+<style media="print">
+    body { visibility: hidden; display: none }
+</style>
 </html>

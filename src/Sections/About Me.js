@@ -4,7 +4,7 @@ import Header from "../Components/Header"
 
 export default function AboutMe(props) {
     return (
-        <div className={"section"}>
+        <section>
             <Grid container direction="row" justifyContent="space-evenly" alignItems="stretch"
                   columns={{xs: 2, md: 12}}>
                 <Grid item xs={3} style={{paddingBottom: "2rem"}}>
@@ -18,6 +18,6 @@ export default function AboutMe(props) {
                     </div>
                 </Grid>
             </Grid>
-        </div>
+        </section>
     )
 }

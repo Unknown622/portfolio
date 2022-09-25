@@ -7,8 +7,8 @@ export default function TimelineItem(props) {
     </Typography>
 
     return (
-
         <div className={"timeline-item-container"}>
+            <span className={"timeline-item-connect"} />
             <div className={"timeline-item"}>
                 {props.social === undefined ? title :
                     <a href={props.url === undefined ? "" : props.url} target="_blank" rel="noreferrer"
@@ -24,8 +24,7 @@ export default function TimelineItem(props) {
                     {props.children}
                 </Typography>
             </div>
-            <span className={"timeline-item-connect"}/>
+            {/*<span className={"timeline-item-connect"}/>*/}
         </div>
-
     )
 }

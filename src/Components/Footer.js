@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from 'react'
 import "../Style/Footer.css"
 import Header from "./Header";
-import {Container, Divider, Grid, Stack} from "@mui/material"
+import {Container, Divider, Grid, Stack, Typography} from "@mui/material"
 import GitHubIcon from '@mui/icons-material/GitHub'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import LocalPhoneRoundedIcon from '@mui/icons-material/LocalPhoneRounded'
@@ -10,6 +10,7 @@ import DownloadRoundedIcon from '@mui/icons-material/DownloadRounded'
 import {saveAs} from "file-saver"
 import Resume from '../Resume.pdf'
 import ToolTip from "./ToolTip"
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 const GITHUB_URL = "https://github.com/Unknown622"
 const LINKEDIN_URL = "https://www.linkedin.com/in/vincent-zimmer-29776a202/"
@@ -42,7 +43,7 @@ export default function Footer(props) {
     })
 
     return (
-        <div className="footer" ref={scrollRef}>
+        <footer className="footer" ref={scrollRef}>
             <Container maxWidth={"xl"}>
                 <Grid container direction="row" justifyContent="flex-start" alignItems="center" style={{padding: "1%"}}
                       columns={{xs: 2, md: 12}}>
@@ -60,7 +61,15 @@ export default function Footer(props) {
                         </Stack>
                     </Grid>
                 </Grid>
+                <Typography variant={"subtitle2"} sx={{color: "white"}} style={{marginTop: "2.45rem"}}>
+                    Gradient Background From:
+                    <a href="https://kevinhufnagl.com/how-to-stripe-website-gradient-effect/" target="_blank"
+                       rel="noopener noreferrer" style={{marginLeft: "0.25rem"}}>
+                        kevinhufnagl.com
+                        <KeyboardArrowRightIcon className="link-arrow" />
+                    </a>
+                </Typography>
             </Container>
-        </div>
+        </footer>
     )
 }

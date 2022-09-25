@@ -1,16 +1,16 @@
 import React, {useEffect, useRef} from 'react'
 import "../Style/Experience.css"
 import Header from "../Components/Header";
-import {Container, Grid, Paper, Typography} from "@mui/material"
+import {Container, Grid, Typography} from "@mui/material"
 import TimelineYear from "../Components/Timeline Year"
 import TimelineItem from "../Components/Timeline Item"
 import TimelineProject from "../Components/Timeline Project"
 
-const languages = ["React (1 year)", "JavaScript (2 years)", "ES6 (1 year)", "Java (3 years)", "HTML (2 years)",
+const languages = ["React (1 year)", "JavaScript (2 years)", "ES6 (1 year)", "Java (5 years)", "HTML (2 years)",
     "CSS (2 years)", "SQL (2 years)", "Node (1 year)", "Flutter (1 year)", "PHP (1 year)", "C++ (2 years)",
-    "JQuery (1 year)", "Python (2 years)", "JSON (1 year)", "XML (1 year)"]
-const skills = ["Agile", "AJAX", "Android", "Android Studio", "Eclipse", "Figma", "GitHub", "Google Suite", "IntelliJ IDEs",
-    "iOS", "Jira", "Linux", "MacOS", "MaterialUI", "Microsoft Office", "Swing GUI", "Tensorflow",
+    "JQuery (1 year)", "Python (2 years)", "JSON (1 year)", "XML (2 years)"]
+const skills = ["Agile", "AJAX", "Android", "Android Studio", "API", "Eclipse", "Figma", "GitHub", "Google Suite",
+    "IntelliJ IDEs", "iOS", "Jira", "Linux", "MacOS", "MaterialUI", "Microsoft Office", "Swing GUI", "Tensorflow",
     "UML", "VS Code", "Windows", "Wordpress", "Xcode", "Zoom"]
 
 export default function Experience(props) {
@@ -19,10 +19,10 @@ export default function Experience(props) {
     // Send scroll ref for menubar to parent
     useEffect(() => {
         props.getScroll(scrollRef.current)
-    })
+    }, [props])
 
     return (
-        <div className={"section"} ref={scrollRef}>
+        <section className={"section"} ref={scrollRef}>
             <Header>Experience</Header>
             <Container maxWidth="lg" className="timeline">
                 <TimelineYear>2022</TimelineYear>
@@ -56,7 +56,7 @@ export default function Experience(props) {
                     text to emojis with an emphasis on frontend
                     <br/>Languages/Tools: Java, AndroidStudio
                 </TimelineProject>
-                <TimelineItem title={"Starbucks Shift Lead at Target"} date={"Dec 2020 to Present"}>
+                <TimelineItem title={"Starbucks Shift Lead at Target"} date={"Dec 2020 to Sep 2022"}>
                     • Fulfill manager on duty responsibilities<br/>
                     • Certified Starbucks trainer<br/>
                     • Coach, lead, and mentor team members
@@ -73,44 +73,42 @@ export default function Experience(props) {
             <Grid container direction="row" justifyContent="space-around" alignItems="stretch"
                   columns={{xs: 1, md: 12}} style={{paddingTop: "1rem"}}>
                 <Grid item xs={6}>
-                    <Paper elevation={6} className={"languages"}>
-                        <Paper elevation={4} className={"small-title"}>
+                    <div className={"languages elevated"}>
+                        <div className={"small-title elevated"}>
                             <Typography variant={"h6"}>
                                 <b>Languages</b>
                             </Typography>
-                        </Paper>
+                        </div>
                         <Grid container direction="row" justifyContent="space-around" alignItems="center"
                               style={{padding: "1rem"}}>
                             {languages.map((language, index) =>
                                 <Grid item key={index}>
                                     <Typography variant={"body1"} style={{width: "11rem"}}>
-                                        <li>{language}</li>
+                                        {"• " + language}
                                     </Typography>
                                 </Grid>
                             )}
                         </Grid>
-                    </Paper>
+                    </div>
                 </Grid>
                 <Grid item xs={6}>
-                    <Paper elevation={6} className={"skills"}>
-                        <Paper elevation={4} className={"small-title"}>
-                            <Typography variant={"h6"}>
-                                <b>Skills/Tools</b>
-                            </Typography>
-                        </Paper>
+                    <div className={"skills elevated"}>
+                        <Typography variant={"h6"} className={"small-title elevated"}>
+                            <b>Skills/Tools</b>
+                        </Typography>
                         <Grid container direction="row" justifyContent="space-around" alignItems="center"
                               style={{padding: "1rem"}}>
                             {skills.map((skill, index) =>
                                 <Grid item key={index}>
                                     <Typography variant={"body1"} style={{width: "10rem"}}>
-                                        <li>{skill}</li>
+                                        {"• " + skill}
                                     </Typography>
                                 </Grid>
                             )}
                         </Grid>
-                    </Paper>
+                    </div>
                 </Grid>
             </Grid>
-        </div>
+        </section>
     )
 }

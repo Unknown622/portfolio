@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom/client'
 import {BrowserRouter, Route, Routes, Navigate} from "react-router-dom"
 import Home from "./Pages/Home"
 import {createTheme, ThemeProvider} from "@mui/material"
-import 'animate.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 // Theme from: https://www.color-hex.com/color-palette/1294

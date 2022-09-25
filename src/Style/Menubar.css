@@ -1,16 +1,19 @@
 .menubar {
-    height: 3.6rem;
-    transition: height 1s;
-}
-
-.menubar {
+    min-height: 3.6rem;
+    transition: min-height 1s;
     background-color: rgba(0, 0, 0, 0.8);
     width: 100%;
-    position: fixed;
-    top: 0;
-    transition: all 1.5s;
-    z-index: 1000;
     display: flex;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.menubar-container {
+    position: fixed;
+    top: -3px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 .menubar-contact-copy {
@@ -42,7 +45,7 @@
     .menubar {
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
-        background-color: rgba(0, 0, 0, 0.4);
+        background-color: rgba(0, 0, 0, 0.6);
     }
 }
 
@@ -146,29 +149,34 @@
     }
 
     .menubar {
-        height: 3rem;
+        min-height: 3rem;
     }
 
     .menubar-logo {
         position: absolute;
-        left: calc(50.25% - 100px);
+        /*left: calc(50.25% - 100px);*/
         top: 0.9rem;
         margin: 0 !important;
     }
 
     .menubar.menu-mobile-active {
-        height: 12.5rem;
+        min-height: 12.5rem;
     }
 
     .menubar-buttons {
-        display: none;
+        display: block;
+        height: 0;
+        transition: height 0s;
+        transition-delay: 2s;
+        overflow: hidden;
         width: 100%;
         top: 3rem;
         position: absolute;
     }
 
     .menubar-buttons.menu-mobile-active {
-        display: block;
+        height: 60%;
+        overflow: visible;
     }
 
     .menubar-button {
@@ -176,36 +184,50 @@
         margin: 0.5rem auto 0 auto;
     }
 
+    .menubar-button.pop-out {
+        animation: pop-out 0.25s;
+        animation-fill-mode: both;
+    }
+
     .menubar-contact {
         position: absolute;
         right: 0.1rem;
+        animation: none;
     }
 }
 
 /* Hide contact info */
 @media (max-width: 550px) {
-    .menubar-contact {
-        display: none;
+    .menubar-contact.menu-mobile-active {
+        height: 48px;
+        transition-delay: 0s;
     }
 
-    .menubar-contact.menu-mobile-active {
-        display: block;
+    .menubar-contact {
         position: absolute;
         right: 0.1rem;
         top: 2.5rem;
+        height: 0;
+        overflow: hidden;
+        transition: height 1ms;
+        transition-delay: 1s;
     }
 
-    .menubar-contact.menu-mobile-active .menubar-contact-copy {
-        animation-delay: 0.25s;
-    }
-
-    .menubar-contact-copy.pop-in {
+    .menubar-contact.pop-in {
         animation: pop-in 1s;
         animation-fill-mode: both;
+        animation-delay: 0.25s;
+        overflow: visible;
+    }
+
+    .menubar-contact.pop-out {
+        animation: pop-out 0.25s;
+        animation-fill-mode: both;
+        animation-delay: 360ms;
     }
 
     .menubar.menu-mobile-active {
-        height: 15rem;
+        min-height: 15rem;
     }
 
     .menubar-buttons {
@@ -221,5 +243,16 @@
     100% {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+@keyframes pop-out {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
     }
 }

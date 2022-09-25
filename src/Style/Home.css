@@ -6,43 +6,79 @@
     padding-bottom: 0.5rem;
 }
 
-.section {
-    padding: 0 1.5rem 1.5rem;
+section {
+    padding: 1rem 0;
 }
 
-.gradient {
-    background: linear-gradient(-45deg, #334b6e, #6497b1, #005073, #1ebbd7, #107dac);
-    background-size: 800% 800%;
-    -webkit-animation: Gradient 30s ease infinite;
-    -moz-animation: Gradient 30s ease infinite;
-    animation: Gradient 30s ease infinite;
-}
-
-.paused {
-    -webkit-animation-play-state: paused; /* Safari 4.0 - 8.0 */
-    animation-play-state: paused;
-}
-
-@keyframes Gradient {
-    0% {
-        background-position: 0 50%
-    }
-    50% {
-        background-position: 100% 50%
-    }
-    100% {
-        background-position: 0 50%
-    }
+.content {
+    margin-top: 4rem;
 }
 
 .about-text {
-    background-color: rgba(0, 0, 0, 0.2) !important;
-    border-radius: 2rem !important;
-    padding: 1.5rem 1.5rem 1rem 1.5rem !important;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 2rem;
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+}
+
+@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+    .about-text {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .mobile-scroll-button {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        background-color: rgba(0, 0, 0, 0.6);
+    }
 }
 
 .elevated {
     box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px, rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
+}
+
+.link-arrow {
+    vertical-align: middle;
+    transform: translateX(-5px);
+    transition: all 1s ease-in-out !important;
+}
+
+a:hover .link-arrow {
+    transform: translateX(0);
+}
+
+/* Mobile Scroll Button */
+.mobile-scroll-button {
+    border-radius: 100%;
+    height: 50px;
+    width: 50px;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    position: fixed;
+    bottom: 2rem;
+    right: 1.5rem;
+    display: none;
+    cursor: pointer;
+}
+
+@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+    .mobile-scroll-button {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+}
+
+.mobile-scroll-button center svg {
+    color: white;
+    height: 32px;
+    width: 32px;
+    transform: translateY(27%);
+}
+
+@media (max-width: 550px) {
+    .mobile-scroll-button {
+        display: block;
+    }
 }

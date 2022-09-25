@@ -3,11 +3,7 @@ import "../Style/ToolTip.css"
 import copy from "copy-to-clipboard"
 
 export default function ToolTip(props) {
-    const ORIG_TITLE = (props.title === undefined ? "" : props.title) // Keep original tooltip title
-    const [title, setTitle] = useState(ORIG_TITLE) // Tooltip text
-    const PLACEMENT = (props.placement === undefined ? "top" : props.placement) // Can be top (default), right, bottom, or left
-    const CLIPBOARD = (props.clipboard === undefined ? "" : props.clipboard) // This is copied when clicked
-    const LINK = (props.link === undefined ? "" : props.link)
+    const [title, setTitle] = useState(props.title === undefined ? "" : props.title) // Tooltip text
     const [className, setClassName] = useState(" hidden") // Classname for tooltip
     const [yCoor, setY] = useState("0") // Y coordinate for tooltip (top in css)
     const [xCoor, setX] = useState("0") // X coordinate for tooltip (left in css)
@@ -30,7 +26,7 @@ export default function ToolTip(props) {
         // Place tooltip
         const container = containerRef.current
         const tooltip = tooltipRef.current
-        switch (PLACEMENT) {
+        switch (props.placement) {
             case "right":
                 setX(container.offsetLeft + container.getBoundingClientRect().width + 12 + "px")
                 setY(container.offsetTop + (container.getBoundingClientRect().height / 2) -
@@ -53,11 +49,15 @@ export default function ToolTip(props) {
                 break
         }
         // Override x position
-        if (props.overrideX !== undefined) {setX(props.overrideX + "px")}
+        if (props.overrideX !== undefined) {
+            setX(props.overrideX + "px")
+        }
         // Override y position
-        if (props.overrideY !== undefined) {setY(props.overrideY + "px")}
+        if (props.overrideY !== undefined) {
+            setY(props.overrideY + "px")
+        }
         setUpdateNeeded(false) // Placement updated
-    }, [PLACEMENT, props.overrideX, props.overrideY])
+    }, [props.placement, props.overrideX, props.overrideY])
 
     useLayoutEffect(function () {
         // Only update tooltip placement when active and needed (like when text changes)
@@ -73,89 +73,116 @@ export default function ToolTip(props) {
         }
     }, [active, updateNeeded, updatePlacement])
 
-// Handles click on tooltip container
-    function handleClick() {
-        if (CLIPBOARD !== "") {
+    // Copies clipboard prop to the clipboard
+    function copyToClipboard() {
+        if (props.clipboard !== undefined) {
             // Copy to clipboard on click then show copied message
             let error = false
             try {
-                copy(CLIPBOARD)
+                copy(props.clipboard)
             } // Try copying to clipboard
             catch (e) { // Error
                 console.error(e)
-                showMessage("Error :(")
+                showMessage("Error")
                 error = true
             }
             // Only show success if no error
             if (!error) {
                 showMessage("Copied")
             }
-        } else if (LINK !== "") {
-            // Redirect to link on click
-            window.open(LINK)
         }
     }
 
-// Show a temporary message on the tooltip
+    // Handles click on tooltip container
+    function handleClick() {
+        const dblClick = "ondblclick" in window // Devices supports double click events
+        if (dblClick) {
+            copyToClipboard()
+        } else if (!dblClick || window.innerWidth > 550) { // Fallback
+            copyToClipboard()
+        }
+    }
+
+    // Show a temporary message on the tooltip
     async function showMessage(message) {
         await hideTooltip()
+        const prevTitle = title
         setTitle(message)
         showTooltip()
         await new Promise(res => setTimeout(res, 2000)) // Wait 2 secs
         await hideTooltip()
-        setTitle(ORIG_TITLE)
+        setTitle(prevTitle)
     }
 
-// Show the tooltip
+    // Show the tooltip
     function showTooltip() {
         setActive(true) // Add tooltip to DOM but still hidden
         setUpdateNeeded(true) // Need to update placement of tooltip
+        const PREFIX = " slide-in-from-"
         // Play animation
-        switch (PLACEMENT) {
+        switch (props.placement) {
             case "right":
-                setClassName(" slide-in-from-left")
+                setClassName(PREFIX + "left")
                 break
             case "bottom":
-                setClassName(" slide-in-from-top")
+                setClassName(PREFIX + "top")
                 break
             case "left":
-                setClassName(" slide-in-from-right")
+                setClassName(PREFIX + "right")
                 break
             default: // Top
-                setClassName(" slide-in-from-bottom")
+                setClassName(PREFIX + "bottom")
                 break
         }
     }
 
 // Hide the tooltip
     async function hideTooltip() {
+        const PREFIX = " hidden slide-out-from-"
         // Play animation
-        switch (PLACEMENT) {
+        switch (props.placement) {
             case "right":
-                setClassName(" hidden slide-out-from-right")
+                setClassName(PREFIX + "right")
                 break
             case "bottom":
-                setClassName(" hidden slide-out-from-bottom")
+                setClassName(PREFIX + "bottom")
                 break
             case "left":
-                setClassName(" hidden slide-out-from-left")
+                setClassName(PREFIX + "left")
                 break
             default: // Top
-                setClassName(" hidden slide-out-from-top")
+                setClassName(PREFIX + "top")
                 break
         }
         await new Promise(res => setTimeout(res, 200)) // Wait for animation to play
         setActive(false) // Remove tooltip from DOM
     }
 
-    return (
-        <div ref={containerRef} onMouseEnter={showTooltip} onMouseLeave={hideTooltip} onClick={handleClick}
-             className={(props.containerClass === undefined ? "" : props.containerClass)
-                 + (CLIPBOARD !== "" || LINK !== "" ? " tooltip-button" : "")}>
-            {props.children}
-            {active &&
-                <div style={{left: xCoor, top: yCoor}} className={"tooltip" + className} ref={tooltipRef}>{title}</div>
-            }
-        </div>
-    )
+    if (props.link !== undefined) {
+        return (
+            <a className={(props.containerClass === undefined ? "" : props.containerClass)} href={props.link}
+               target="_blank" rel="noopener noreferrer" ref={containerRef} onMouseEnter={showTooltip}
+               onMouseLeave={hideTooltip}>
+                {props.children}
+                {active &&
+                    <div style={{left: xCoor, top: yCoor}} className={"tooltip" + className}
+                         ref={tooltipRef}>{title}</div>
+                }
+            </a>
+        )
+    } else {
+        return (
+            <div ref={containerRef} onMouseEnter={showTooltip} onMouseLeave={hideTooltip}
+                 onClick={(window.innerWidth > 550 ? handleClick : null)}
+                 onDoubleClick={(window.innerWidth <= 550 ? handleClick : null)}
+                 className={(props.containerClass === undefined ? "" : props.containerClass)
+                     + (props.clipboard === undefined ? "" : " tooltip-button")}>
+                {props.children}
+                {active &&
+                    <div style={{left: xCoor, top: yCoor}} className={"tooltip" + className}
+                         ref={tooltipRef}>{title}</div>
+                }
+            </div>
+        )
+    }
 }

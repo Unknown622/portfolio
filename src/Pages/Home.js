@@ -1,31 +1,18 @@
-import React, {useCallback, useEffect, useRef, useState} from 'react'
+import React, {useCallback, useEffect, useRef} from 'react'
 import "../Style/Home.css"
 import AboutMe from "../Sections/About Me.js"
 import Experience from "../Sections/Experience"
-import Footer from "../Components/Footer";
-import {Container, debounce} from "@mui/material"
-import Menubar from "../Components/Menubar";
+import Footer from "../Components/Footer"
+import {Container} from "@mui/material"
+import Menubar from "../Components/Menubar"
+import MobileScrollButton from "../Components/MobileScrollButton"
+import {saveAs} from "file-saver"
+import Resume from '../Resume.pdf'
 
 export default function Home() {
-    const PLAY_GRADIENT = "gradient"
-    const PAUSE_GRADIENT = PLAY_GRADIENT + " paused"
-    let [gradient, setGradient] = useState(PAUSE_GRADIENT)
     let footerRef = useRef()
     let topRef = useRef()
     let experienceRef = useRef()
-
-    useEffect(() => {
-        // Add scroll listener
-        // Start gradient on scroll
-        window.addEventListener("scroll", () => {
-            setGradient(PLAY_GRADIENT)
-        })
-        // Add scroll stop listener
-        // Pause gradient on scroll stop
-        window.addEventListener('scroll', debounce(() => {
-            setGradient(PAUSE_GRADIENT)
-        }, 500))
-    })
 
     // Get scroll refs for menubar
     const getFooterScroll = useCallback((data) => {
@@ -36,10 +23,18 @@ export default function Home() {
         experienceRef.current = data
     }, [])
 
+    // Download resume when using control + P
+    useEffect(() => {
+        // Add print listener
+        window.addEventListener("beforeprint", () => {
+            saveAs(Resume, "Resume.pdf")
+        })
+    }, [])
+
     return (
-        <div className={"content " + gradient} ref={topRef}>
-            <Menubar footerRef={footerRef} topRef={topRef} experienceRef={experienceRef} />
-            <Container style={{paddingTop: "4rem", animationFillMode: "both"}}>
+        <>
+            <Menubar footerRef={footerRef} topRef={topRef} experienceRef={experienceRef}/>
+            <Container className="content" ref={topRef}>
                 <AboutMe>
                     I have over a year of professional experience as a Software Engineer at Ecumen where I
                     worked on ABXTracker. I started at Ecumen as an intern working on ABXTracker but when the internship
@@ -54,7 +49,8 @@ export default function Home() {
                 </AboutMe>
                 <Experience getScroll={getExperienceRef}/>
             </Container>
+            <MobileScrollButton />
             <Footer getScroll={getFooterScroll}/>
-        </div>
+        </>
     )
 }
