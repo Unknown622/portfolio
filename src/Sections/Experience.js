@@ -96,7 +96,7 @@ export default function Experience(props) {
                               style={{padding: "1rem"}}>
                             {languages.map((language, index) =>
                                 <Grid item key={index}>
-                                    <Typography variant={"body1"} style={{width: "11rem"}}>
+                                    <Typography variant={"body1"} style={{width: "12.85rem"}}>
                                         {"• " + language}
                                     </Typography>
                                 </Grid>
