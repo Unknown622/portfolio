@@ -26,10 +26,10 @@ export default function Experience(props) {
             <Header>Experience</Header>
             <Container maxWidth="lg" className="timeline">
                 <TimelineYear>2022</TimelineYear>
-                <TimelineItem title={"Part-Time Software Engineer at Ecumen"} date={"Sep 2021 to Present"}>
-                    Work on proprietary ABXTracker website for long-term healthcare facilities which allows users to
+                <TimelineItem title={"Part-Time Software Engineer at Ecumen"} date={"Sep 2021 to March 2023"}>
+                    Worked on proprietary ABXTracker website for long-term healthcare facilities which allows users to
                     track patient antibiotics and infections.<br/>
-                    • Add new UI and backend features (example: facility visitor contact tracing) including end-to-end
+                    • Added new UI and backend features (example: facility visitor contact tracing) including end-to-end
                     testing<br/>
                     • SDLC with monthly releases including bug fixes, UI enhancements, and new features<br/>
                     Languages/Tools: Wordpress, HTML, JavaScript, CSS, PHP, SQL

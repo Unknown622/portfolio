@@ -1,8 +1,10 @@
 {
   "name": "portfolio",
-  "version": "0.1.0",
+  "version": "2.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.8.7",
     "@testing-library/jest-dom": "^5.16.4",
