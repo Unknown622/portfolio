@@ -6,12 +6,12 @@ import TimelineYear from "../Components/Timeline Year"
 import TimelineItem from "../Components/Timeline Item"
 import TimelineProject from "../Components/Timeline Project"
 
-const languages = ["React (1 year)", "JavaScript (2 years)", "ES6 (1 year)", "Java (5 years)", "HTML (2 years)",
-    "CSS (2 years)", "SQL (2 years)", "Node (1 year)", "Flutter (1 year)", "PHP (1 year)", "C++ (2 years)",
-    "JQuery (1 year)", "Python (2 years)", "JSON (1 year)", "XML (2 years)"]
+const languages = ["React (2 years)", "JavaScript/ES5+ (3 years)", "Next.js (<1 year)", "HTML (3 years)",
+    "CSS (3 years)", "SQL (3 years)", "Node.js (1 year)", "Dart/Flutter (1 year)", "Java (5 years)", "PHP (2 years)",
+    "C++ (2 years)", "JQuery (1 year)", "Python (2 years)", "XML (2 years)"]
 const skills = ["Agile", "AJAX", "Android", "Android Studio", "API", "Eclipse", "Figma", "GitHub", "Google Suite",
-    "IntelliJ IDEs", "iOS", "Jira", "Linux", "MacOS", "MaterialUI", "Microsoft Office", "Swing GUI", "Tensorflow",
-    "UML", "VS Code", "Windows", "Wordpress", "Xcode", "Zoom"]
+    "IntelliJ IDEs", "iOS", "Jira", "Linux", "MacOS", "MaterialUI", "Microsoft Office", "npm", "Tensorflow",
+    "UML", "VSCode", "Webpack", "Windows", "Wordpress", "Xcode", "Zoom"]
 
 export default function Experience(props) {
     let scrollRef = useRef()

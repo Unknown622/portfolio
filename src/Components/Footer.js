@@ -13,7 +13,7 @@ import ToolTip from "./ToolTip"
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
 
 const GITHUB_URL = "https://github.com/Unknown622"
-const LINKEDIN_URL = "https://www.linkedin.com/in/vincent-zimmer-29776a202/"
+const LINKEDIN_URL = "https://www.linkedin.com/in/vincent~zimmer"
 const PHONE_NUMBER = "(763) 301-2865"
 const EMAIL = "vlz12@yahoo.com"
 
