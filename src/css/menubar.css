@@ -1,0 +1,357 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  max-width: 100vw;
+  z-index: 100;
+  height: 3.6rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  display: grid;
+  grid-template-columns: 260px 1fr 180px;
+  grid-template-rows: 1fr;
+  place-items: center;
+  overflow: hidden;
+  min-width: inherit;
+}
+
+header.animated {
+  transition: height 500ms ease-in-out !important;
+}
+
+header a {
+  text-decoration: none;
+}
+
+header #logo, header #logo h1 {
+  white-space: nowrap;
+  min-width: max-content;
+}
+
+header #logo h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 20pt;
+  opacity: 0.8;
+  transition: text-shadow ease 1s, opacity ease 1s, transform ease-in-out 500ms;
+}
+
+header #logo h1:hover {
+  opacity: 1;
+  text-shadow: 1px 1px 10px rgba(100, 125, 255, 0.2), -1px -1px 10px rgba(100, 125, 255, 0.2);
+}
+
+header #contact {
+  width: fit-content;
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  grid-template-rows: 1fr 1fr;
+  column-gap: 0.25rem;
+}
+
+header #contact img {
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+
+header #contact h4 {
+  margin: 0;
+  font-weight: normal;
+  transition: text-shadow ease 1s;
+}
+
+header #contact h4:hover {
+  text-shadow: 4px 4px 5px rgba(130, 130, 255, 0.2), -4px -4px 5px rgba(130, 150, 255, 0.2);
+}
+
+#navigation {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+header #navigation nav {
+  list-style: none;
+  display: flex;
+  gap: inherit;
+}
+
+header #navigation #animation-toggle {
+  cursor: pointer;
+  aspect-ratio: 1 / 1;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+}
+
+header #navigation #animation-toggle span.toggle {
+  aspect-ratio: 1 / 1;
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 200ms;
+  border-radius: 50%;
+  background-color: rgba(255, 69, 80, 0.8);
+  box-shadow: inset 0 0 10px 5px rgba(0, 0, 0, 0.4), inset 0 0 6px rgba(0, 0, 0, 0.6);
+}
+
+header #navigation #animation-toggle span.toggle span {
+  transition: all 200ms ease-in-out;
+  height: 30%;
+  width: 30%;
+  background-color: transparent;
+  border: 4px solid rgba(255, 255, 255, 0.9);
+  border-radius: inherit;
+  cursor: pointer;
+  animation: stop 700ms linear forwards;
+}
+
+header #navigation #animation-toggle:active span.toggle {
+  scale: 0.95;
+}
+
+header #navigation #animation-toggle input[type]:checked + span.toggle {
+  background-color: rgba(70, 208, 115, 0.8);
+}
+
+header #navigation #animation-toggle input[type]:checked + span.toggle span {
+  width: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-color: transparent;
+  border-radius: 1rem;
+  animation: play 700ms linear forwards !important;
+}
+
+header #scroll-progress {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 0.075rem;
+  background: white;
+  border-radius: 0.25rem;
+  opacity: 0.8;
+}
+
+/* Animations */
+@keyframes stop {
+  0% {
+    height: 40%;
+    width: 40%;
+    border-width: 2px;
+  }
+  55% {
+    height: 22%;
+    width: 38%;
+    border-width: 3px;
+  }
+
+  70% {
+    height: 30%;
+    width: 30%;
+    border-width: 3px;
+  }
+
+  85% {
+    height: 25%;
+    width: 35%;
+    border-width: 3px;
+  }
+
+  100% {
+    height: 32%;
+    width: 32%;
+    border-width: 3px;
+  }
+}
+
+@keyframes play {
+  0% {
+    height: 20%;
+    width: 20%;
+    border-width: 3px;
+  }
+
+  25%, 55%, 85% {
+    height: 30%;
+    width: 5%;
+    border-width: 2px;
+  }
+
+  40%, 70%, 100% {
+    height: 30%;
+    width: 0;
+    border-width: 2px;
+  }
+}
+
+header .pop-in,
+header .pop-out,
+header .fade-in,
+header .fade-out {
+  animation-duration: 400ms;
+}
+
+header .pop-in,
+header .pop-out,
+header .fade-in {
+  animation-fill-mode: both;
+}
+
+header .pop-in {
+  animation-name: pop-in;
+  animation-timing-function: ease-out;
+}
+
+header .pop-out {
+  animation-name: pop-out;
+  animation-timing-function: ease;
+}
+
+header .fade-in {
+  animation-name: fade-in;
+  animation-timing-function: ease;
+}
+
+header .fade-out {
+  animation-name: fade-out;
+  animation-timing-function: ease;
+}
+
+/* Mobile Layout */
+header #menu-toggle {
+  aspect-ratio: 1 / 1;
+  height: inherit;
+  max-height: 2rem;
+  margin-left: 0.25rem;
+  position: relative;
+  cursor: pointer;
+}
+
+header #menu-toggle .hamburger span {
+  background: white;
+  height: 1px;
+  width: 60%;
+  position: absolute;
+  left: 20%;
+  border-radius: 0.5rem;
+  transition: top 250ms ease-in-out 150ms, transform 250ms ease-in-out 0s, width 250ms ease-in-out 0s, left 250ms ease-in-out 0s;
+}
+
+header #menu-toggle .hamburger span:first-of-type {
+  top: 40%;
+}
+
+header #menu-toggle .hamburger span:last-of-type {
+  top: 60%;
+}
+
+header #menu-toggle input[type]:checked + .hamburger span {
+  width: 80%;
+  left: 10%;
+  transition: top 250ms ease-in-out 0s, transform 250ms ease-in-out 150ms, width 250ms ease-in-out 150ms, left 250ms ease-in-out 150ms;
+}
+
+header #menu-toggle input[type]:checked + .hamburger span:first-of-type {
+  transform: rotate(45.5deg);
+  top: 49.5%;
+}
+
+header #menu-toggle input[type]:checked + .hamburger span:last-of-type {
+  transform: rotate(-45.5deg);
+  top: 50%;
+}
+
+/* Mobile Layout */
+@media (max-width: 840px) {
+  header #contact {
+    display: none;
+  }
+
+  header {
+    grid-template-columns: 260px 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  header {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 3.6rem auto;
+    grid-template-areas: "col1 col2" "col3 col3";
+  }
+
+  header #menu-toggle {
+    grid-area: col1;
+    justify-self: start;
+  }
+
+  header #logo {
+    position: absolute;
+    left: 50vw;
+    transform: translateX(-50%);
+    top: 1rem;
+  }
+
+  header #navigation,
+  header #navigation nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  header #navigation nav a {
+    height: 2rem;
+  }
+
+  header #contact {
+    display: grid;
+    grid-area: col2;
+    justify-self: end;
+    margin-right: 0.5rem;
+  }
+
+  header #navigation {
+    padding-bottom: 1.5rem;
+    place-items: flex-end;
+    grid-area: col3;
+    width: clamp(300px, 95vw, 700px);
+    margin: 0 auto;
+  }
+
+  header #navigation nav,
+  header #navigation nav a {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+@media (max-width: 575px) {
+  header #logo {
+    top: 0.45rem;
+  }
+
+  header.active {
+    grid-template-areas: "col1" "col3" "col2";
+    grid-template-columns: 1fr;
+    grid-template-rows: 3rem auto auto;
+  }
+
+  header #navigation {
+    padding-top: 0.6rem;
+  }
+
+  header #contact {
+    display: grid;
+    justify-self: flex-start;
+    transform: translateY(-150%);
+    margin-left: 0.5rem;
+    margin-right: 0;
+  }
+
+  header {
+    height: 3rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3rem auto;
+  }
+}

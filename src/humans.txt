@@ -1,0 +1,21 @@
+# humanstxt.org/
+
+-- TEAM --
+    Developer: Vincent Zimmer
+    Website: https://vincentzimmer.tech
+    Email: vlz12@yahoo.com
+    LinkedIn: https://linkedin.com/in/vincent~zimmer
+
+-- THANKS --
+    Framework: Babel & Webpack
+    Icons: Remix Icons https://github.com/Remix-Design/RemixIcon
+    Fonts: Source Sans Pro https://fonts.google.com/specimen/Source+Sans+Pro, Source Code Pro https://fonts.google.com/specimen/Source+Code+Pro
+
+-- SITE --
+    Last update: May 2023
+    Standards: HTML5, CSS3, EcmaScript
+    Software: WebStorm, Vectornator
+
+-- SERVICES --
+    Analytics: Cloudflare Web Analytics
+    Hosting: https://cloudflare.com

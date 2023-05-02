@@ -1,0 +1,70 @@
+.message {
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+  display: grid;
+  padding: 1rem;
+  border-radius: 1.5rem;
+  width: clamp(200px, 90vw, 800px);
+  place-items: center;
+  row-gap: 1.5rem;
+}
+
+.message .title {
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  max-width: 100%;
+  font-size: clamp(1rem, 1.4vh + 1.4vw, 2.8rem);
+}
+
+.message .text {
+  font-size: 1.5rem;
+}
+
+.message > a[role="button"],
+.message > button {
+  width: clamp(150px, 40%, 300px);
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+}
+
+noscript .message > img {
+  aspect-ratio: 1 / 1;
+  height: 4rem;
+}
+
+/* Mobile Layout */
+@media (max-width: 700px) {
+  .message .title {
+  /*  font-size: 1.15rem;*/
+  /*  font-size: clamp(1rem, 1.25vh + 1.25vw, 2.8rem);*/
+  }
+
+  .message .text {
+    font-size: 1rem;
+  }
+
+  footer {
+    position: relative;
+    margin-top: 75vh;
+  }
+}
+
+/* Animations */
+/* Based off of https://codepen.io/denic/pen/GRoOxbM */
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
+}

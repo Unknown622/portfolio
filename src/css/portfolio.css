@@ -1,0 +1,136 @@
+main {
+  margin: 5rem auto 0 auto;
+  position: relative;
+  width: clamp(300px, 90vw, 1600px);
+}
+
+section {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+section#about-me h1.heading {
+  flex: 1 0 250px;
+  max-width: 300px;
+}
+
+section#about-me {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+section#about-me > div {
+  flex: 2 0 400px;
+  border-radius: 2rem;
+  padding: 1.5rem;
+}
+
+section#about-me > div p {
+  text-indent: 1rem;
+}
+
+section#experience .grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
+  width: 100%;
+  margin-top: 1rem;
+  align-items: center;
+}
+
+section#experience .grid #languages,
+section#experience .grid #tools {
+  padding: 1rem;
+  border-radius: 2rem;
+  height: fit-content;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2.5rem 1fr;
+  grid-row-gap: 0.5rem;
+}
+
+section#experience .grid #languages h5.title,
+section#experience .grid #tools h5.title {
+  height: 2.5rem;
+  width: max-content;
+  padding: 0 0.5rem;
+  border-radius: inherit;
+  display: grid;
+  place-items: center;
+}
+
+section#experience .grid #languages ul,
+section#experience .grid #tools ul {
+  margin: auto 0;
+  padding: 1rem;
+  padding-left: 2.25rem;
+  border-radius: inherit;
+  list-style: square;
+  display: grid;
+}
+
+section#experience .grid #languages ul {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+section#experience .grid #tools ul {
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+footer {
+  margin-top: 2rem;
+}
+
+div#gradient div.parallax-scroll,
+div#gradient div.parallax-scroll img {
+  position: absolute;
+  height: inherit;
+  width: inherit;
+}
+
+div#gradient div.parallax-scroll {
+  top: 0;
+  border-radius: 1rem;
+}
+
+div#gradient div.parallax-scroll img {
+  object-fit: cover;
+}
+
+div#gradient div.parallax-scroll img[src$="wave-1.svg"] {
+  opacity: 0.2;
+}
+
+div#gradient div.parallax-scroll img[src$="wave-2.svg"] {
+  opacity: 0.4;
+}
+
+div#gradient div.parallax-scroll img[src$="wave-3.svg"] {
+  opacity: 0.5;
+}
+
+div#gradient div.parallax-scroll img[src$="wave-4.svg"] {
+  opacity: 0.6;
+}
+
+/* Mobile Layout */
+@media (max-width: 700px) {
+  section#experience .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  section#about-me > div {
+    flex: 2 0 250px;
+  }
+}
+
+@media (max-width: 575px) {
+  main {
+    margin-top: 3.5rem;
+  }
+}

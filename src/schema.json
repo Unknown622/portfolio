@@ -1,0 +1,10 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Person",
+  "name": "Vincent Zimmer",
+  "url": "https://vincentzimmer.tech",
+  "sameAs": [
+    "https://linkedin.com/in/vincent~zimmer",
+    "https://github.com/Unknown622"
+  ]
+}

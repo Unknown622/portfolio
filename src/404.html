@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <title>Error | 404 Not Found</title>
+  <meta name="robots" content="noindex">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://static.cloudflareinsights.com https://cloudflareinsights.com; style-src 'unsafe-inline' 'self';">
+  <meta name="author" content="Vincent Zimmer">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#193740">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/img/favicon/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+  <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#0077b6">
+  <link rel="manifest" href="/site.webmanifest">
+  <!-- JavaScript -->
+  <script type="text/javascript" src="/js/error.bundle.js"></script>
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/public.css">
+  <link rel="stylesheet" href="/css/error.css">
+  <link rel="stylesheet" href="/css/tooltip.css">
+</head>
+<body>
+<!-- Background -->
+<img src="/img/background/fallback-gradient.png" alt="Gradient Background">
+<div id="gradient" class="paused" data-animated style="opacity: 0;">
+  <canvas style="opacity: 0;"></canvas>
+</div>
+<!-- No JavaScript Message -->
+<noscript>
+  <div class="message blur-dark-10">
+    <img src="/img/icons/solid/code-box.svg" alt="Code Icon">
+    <h1 class="title source-code-pro" style="width: 25ch; animation: typing 2s steps(25), blink 500ms step-end infinite alternate;">Did You Forget Something?</h1>
+    <p class="text">Looks like you wandered off the path, but don't worry - we'll JavaScript our way out of this!</p>
+    <a class="icon source-code-pro" role="button" href="https://www.enable-javascript.com/" target="_blank" rel="noreferrer">
+      <img src="/img/icons/solid/information.svg" alt="More Info Icon">More info
+    </a>
+  </div>
+</noscript>
+<!-- Error Message -->
+<div class="message blur-dark-10" style="display: none;">
+  <h1 class="title source-code-pro"></h1>
+  <p class="text"></p>
+</div>
+<footer id="connect" class="blur-dark-10">
+  <div class="container">
+    <h1 class="heading">Connect</h1>
+    <div class="link-grid">
+      <a class="bubble shadow" role="button" title="LinkedIn" data-distance="10" href="https://www.linkedin.com/in/vincent~zimmer" target="_blank" rel="noopener noreferrer">
+        <img src="/img/icons/solid/linkedin.svg" alt="LinkedIn Icon">
+        <p class="source-code-pro mobile">LinkedIn</p>
+      </a>
+      <hr>
+      <a class="bubble shadow" role="button" title="GitHub" data-distance="10" href="https://github.com/Unknown622" target="_blank" rel="noopener noreferrer">
+        <img src="/img/icons/solid/github.svg" alt="GitHub Icon">
+        <p class="source-code-pro mobile">GitHub</p>
+      </a>
+      <hr>
+      <a class="bubble shadow" role="button" title="Send email" data-distance="10" href="mailto:vlz12@yahoo.com">
+        <img src="/img/icons/solid/mail.svg" alt="Email Icon">
+        <p class="source-code-pro mobile">Send email</p>
+      </a>
+      <hr>
+      <a class="bubble shadow" role="button" title="Call phone number" data-distance="10" href="tel:7633012865">
+        <img src="/img/icons/solid/phone.svg" alt="Phone Icon">
+        <p class="source-code-pro mobile">Call phone number</p>
+      </a>
+      <hr>
+      <a class="bubble shadow" role="button" title="Download resume" data-distance="10" href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+        <img src="/img/icons/solid/file-download.svg" alt="File Download Icon">
+        <p class="source-code-pro mobile">Download resume</p>
+      </a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

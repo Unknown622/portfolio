@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <title>Vincent Zimmer's Portfolio</title>
+  <meta name="robots" content="index, nofollow">
+<!--  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://static.cloudflareinsights.com https://cloudflareinsights.com; style-src 'unsafe-inline' 'self';">-->
+  <meta name="keywords" content="frontend developer minneapolis, frontend developer minnesota, software engineer minneapolis, software engineer minnesota, software developer minneapolis, software developer minnesota, software engineer portfolio, software developer portfolio">
+  <meta name="description" content="Vincent's portfolio website showcasing his software engineering projects and skills.">
+  <meta name="author" content="Vincent Zimmer">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#193740">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/img/favicon/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+  <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#0077b6">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#2d89ef">
+  <!-- SEO -->
+  <meta property="og:title" content="Vincent Zimmer's Portfolio">
+  <meta property="og:description" content="Vincent's portfolio website showcasing his software engineering projects and skills.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vincentzimmer.tech">
+  <meta property="og:image" content="/img/background/fallback-gradient.png">
+  <meta name="twitter:image" content="/img/background/fallback-gradient.png">
+  <script type="application/ld+json" src="/schema.json"></script>
+  <!-- JavaScript -->
+  <script type="text/javascript" src="/js/portfolio.bundle.js"></script>
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/public.css">
+  <link rel="stylesheet" href="/css/portfolio.css">
+  <link rel="stylesheet" href="/css/menubar.css">
+  <link rel="stylesheet" href="/css/tooltip.css">
+  <link rel="stylesheet" href="/css/timeline.css">
+  <style media="print">
+    body {
+      visibility: hidden;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+<!-- Background -->
+<img src="/img/background/fallback-gradient.png" alt="Gradient Background">
+<div id="gradient" class="paused" data-animated style="opacity: 0;">
+  <canvas style="opacity: 0;"></canvas>
+  <div class="parallax-scroll blur-dark-2 bubble shadow" data-animated>
+    <img src="/img/background/wave-4.svg" alt="Color Wave Background">
+    <img src="/img/background/wave-3.svg" alt="Color Wave Background">
+    <img src="/img/background/wave-2.svg" alt="Color Wave Background">
+    <img src="/img/background/wave-1.svg" alt="Color Wave Background">
+  </div>
+</div>
+<!-- Menubar -->
+<header class="blur-dark-15">
+  <label id="menu-toggle" class="mobile">
+    <input type="checkbox" hidden>
+    <span class="hamburger"><span></span><span></span></span>
+  </label>
+  <a id="logo" href="/">
+    <h1 class="source-code-pro">VINCENT ZIMMER</h1>
+  </a>
+  <div id="navigation">
+    <nav>
+      <a role="button" class="source-code-pro bubble-dark" href="#about-me">About Me</a>
+      <a role="button" class="source-code-pro bubble-dark" href="#experience">Experience</a>
+      <a role="button" class="source-code-pro bubble-dark" href="#connect">Connect</a>
+    </nav>
+    <div style="display: flex; align-items: center">
+      <p class="source-code-pro mobile">Animations:</p>
+      <!-- Based off of: https://dribbble.com/shots/4707036-Switcher-XXXVIII -->
+      <label id="animation-toggle" title="Stop animations" data-placement="right" data-distance="8" style="display: none;">
+        <input type="checkbox" hidden>
+        <span class="toggle"><span></span></span>
+      </label>
+    </div>
+  </div>
+  <div id="contact">
+    <img src="/img/icons/solid/phone.svg" alt="Phone Icon">
+    <a href="tel:7633012865" title="Call phone number" data-placement="left" data-distance="28" data-mobile="false">
+      <h4>(763) 301-2865</h4>
+    </a>
+    <img src="/img/icons/solid/mail.svg" alt="Email Icon">
+    <a href="mailto:vlz12@yahoo.com" title="Send email" data-placement="left" data-distance="28" data-mobile="false">
+      <h4>vlz12@yahoo.com</h4>
+    </a>
+  </div>
+  <div id="scroll-progress"></div>
+</header>
+<!-- No JavaScript Message -->
+<noscript>
+  <div id="noscript-message" class="blur-dark-15 bubble-dark shadow">
+    <img src="/img/icons/solid/code-box.svg" alt="Code Icon">
+    <h2 class="title source-code-pro">JavaScript: Unleash the Magic!</h2>
+    <p>Let JavaScript do its thing and make your browsing experience a blast!</p>
+    <a class="icon source-code-pro" role="button" href="https://enable-javascript.com/" target="_blank" rel="noreferrer">
+      <img src="/img/icons/solid/information.svg" alt="More Info Icon">
+      More info
+    </a>
+  </div>
+</noscript>
+<!-- Content -->
+<main>
+  <section id="about-me">
+    <h1 class="heading source-code-pro">About Me</h1>
+    <div class="blur-dark-10 bubble shadow">
+      <p>
+        Hi! My name is Vincent Zimmer, and I am a highly motivated software engineer with a passion for learning and collaboration. I recently graduated from Saint Cloud State University with a Bachelor of Science in Software Engineering and have nearly two years of professional experience as a full-stack software engineer.
+      </p>
+      <p>
+        During my almost two years at Ecumen, I designed and implemented new UI and backend features with a focus on usability and accessibility. I contributed to the development of a SaaS platform for long-term healthcare facilities that enables users to track patient antibiotics and infections, ensuring accurate record-keeping and medication management. I also developed a map builder tool that simplifies and reduces the time needed to program facility maps for visually tracking infections.
+      </p>
+      <p>
+        My experience as a Starbucks shift lead at Target has also taught me valuable skills in leadership, inventory management, and customer service. I demonstrated flexibility and adaptability by working in a fast-paced environment and adjusting to changing customer demands and preferences. I maintained the highest standards of product quality, safety, and cleanliness, ensuring that the store was always in compliance with local and federal regulations. I also utilized advanced communication and problem-solving skills to resolve customer complaints and maintain positive relationships with customers.
+      </p>
+      <p>
+        In addition to my work experience, I also participated in various projects during my undergraduate studies. As an active participant in business events and stakeholder requirements refinement, I contributed to the development of a desktop and mobile web application that counted and classified vehicles on a road and obtained road conditions using a webcam for the Upper Great Plains Transportation Institute at NDSU. I also created UI to support user management plus labeled and classified images for a machine learning model. For my undergraduate applied research project, I was part of an agile team where we developed a mobile app that allowed users to request lawn and snow services from a local provider, similar to Uber.
+      </p>
+      <p>
+        Overall, I am passionate about developing applications with the end-user in mind and thrive in fast-paced environments. I am committed to continuous learning and collaboration with my teammates to make a difference. Thank you for taking the time to check out my portfolio!
+      </p>
+    </div>
+  </section>
+  <section id="experience">
+    <h1 class="heading source-code-pro">Experience</h1>
+    <div id="timeline">
+      <h4 class="item-year source-code-pro bubble-dark">2023</h4>
+      <div class="item-container">
+        <div class="item-grid blur-dark-5 bubble tilt-animation">
+          <h2 class="title">Independent Contractor</h2>
+          <h5 class="date source-code-pro">May 2023</h5>
+        </div>
+      </div>
+      <div class="item-container">
+        <div class="item-grid blur-dark-5 bubble tilt-animation">
+          <a class="project" href="https://github.com/Unknown622/portfolio" target="_blank" rel="noopener noreferrer">
+            <img src="/img/icons/solid/github.svg" alt="GitHub Icon">
+            <h2 class="title">This Website</h2>
+          </a>
+          <h5 class="date source-code-pro">May 2023</h5>
+          <div>
+            <h5 class="source-code-pro">Languages/Tools:</h5>
+            <p>Babel, CSS, HTML, JavaScript, npm, Webpack</p>
+          </div>
+        </div>
+      </div>
+      <div class="item-container">
+        <div class="item-grid blur-dark-5 bubble tilt-animation">
+          <h2 class="title">Full-Stack Software Engineer at Ecumen</h2>
+          <h5 class="date source-code-pro">Sep 2021 to Mar 2023</h5>
+          <ul>
+            <li>Contributed to the development of a SaaS platform for long-term healthcare facilities that enabled users to track patient antibiotics and infections, ensuring accurate record keeping and medication management.</li>
+            <li>Designed and implemented new UI and backend features, including facility visitor contact tracing, with a focus on usability and accessibility.</li>
+            <li>Utilized SDLC agile methodology with monthly releases, including bug fixes, UI enhancements, and new features.</li>
+            <li>Developed a map builder tool that simplified and reduced the time needed to program facility maps for visually tracking infections.</li>
+          </ul>
+          <div>
+            <h5 class="source-code-pro">Languages/Tools:</h5>
+            <p>CSS, HTML, JavaScript, MySQL, PHP, Wordpress</p>
+          </div>
+          <div class="more-info">
+            <div class="content" data-animated>
+              <p>
+                As an Intern to Part-Time Full Stack Software Engineer at Ecumen, I played a crucial role in the development of a SaaS platform for long-term healthcare facilities. My responsibilities included designing and implementing new UI and backend features, ensuring usability and accessibility for the end-users, and utilizing SDLC agile methodology for monthly releases, including bug fixes, UI enhancements, and new features.
+              </p>
+              <p>
+                One of the most significant contributions I made was developing a map builder tool that simplified and reduced the time needed to program facility maps for visually tracking infections. Previously, the process of manually placing HTML div elements on the map was time-consuming and prone to errors. However, with my map builder tool, users could directly draw rooms on the map using the mouse, reducing map programming time from hours to just a few minutes.
+              </p>
+              <p>
+                The map builder tool was integrated with a database to update room names for easy infection tracking in each facility. This project not only saved time and increased accuracy but also provided a user-friendly and intuitive interface for the end-users.
+              </p>
+              <p>
+                Overall, my role at Ecumen allowed me to gain valuable experience in full-stack development, agile methodology, and project management. My contributions, particularly in the map builder project, streamlined the user experience, improving the accuracy and efficiency of infection tracking in long-term healthcare facilities.
+              </p>
+            </div>
+            <label class="toggle" title="More info" data-distance="2">
+              <input type="checkbox" hidden>
+              <img alt="Down Arrow" src="/img/icons/solid/arrow-down-s.svg">
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="item-container">
+        <div class="item-grid blur-dark-5 bubble tilt-animation">
+          <h2 class="title">Graduated at SCSU</h2>
+          <h5 class="date source-code-pro">Aug 2022</h5>
+          <p style="text-indent: 0;">
+            Graduated at Saint Cloud State University with a Bachelor's of Science in Software Engineering.
+          </p>
+        </div>
+      </div>
+      <div class="item-container">
+        <div class="item-grid blur-dark-5 bubble tilt-animation">
+          <h2 class="title">Project: Capstone at SCSU</h2>
+          <h5 class="date source-code-pro">Aug 2021 to May 2022</h5>
+          <p>
+            Part of an agile team that developed a desktop and mobile website that counted and classified vehicles on a road and got road conditions using a webcam for Upper Great Plains Transportation Institute at NDSU.
+          </p>
+          <ul>
+            <li>Active participant in business events, context model, refined stakeholder requirements, conducted demos, and contributed to software documentation.</li>
+            <li>Created UI to support user management plus labeled and classified images for machine learning model.</li>
+            <li>Two week agile sprints with near daily stand-ups, bi-weekly status updates and demos with stakeholders, and bi-weekly class presentations.</li>
+          </ul>
+          <div>
+            <h5 class="source-code-pro">Languages/Tools:</h5>
+            <p>JavaScript/ES6, Python, React, Tensorflow</p>
+          </div>
+        </div>
+      </div>
+      <div class="item-container">
+        <div class="item-grid blur-dark-5 bubble tilt-animation">
+          <h2 class="title">Project: Netflix Recommender</h2>
+          <h5 class="date source-code-pro">Fall 2021</h5>
+          <p>
+            Part of team for Data Mining course which made a website that recommended Netflix titles based off the similarity of descriptions in a dataset.
+          </p>
+          <div>
+            <h5 class="source-code-pro">Languages/Tools:</h5>
+            <p>CSS, Flask, HTML, JavaScript, Python</p>
+          </div>
+        </div>
+      </div>
+      <div class="item-container">
+        <div class="item-grid blur-dark-5 bubble tilt-animation">
+          <a class="project" href="https://github.com/Unknown622/Emoji-Translator" target="_blank" rel="noopener noreferrer">
+            <img src="/img/icons/solid/github.svg" alt="GitHub Icon">
+            <h2 class="title">Emoji Translator</h2>
+          </a>
+          <h5 class="date source-code-pro">Spring 2022</h5>
+          <p>
+            Part of team for Human Computer Interaction course that made an Android app that translated text to emojis with an emphasis on frontend.
+          </p>
+          <div>
+            <h5 class="source-code-pro">Languages/Tools:</h5>
+            <p>AndroidStudio, Java</p>
+          </div>
+        </div>
+      </div>
+      <div class="item-container">
+        <div class="item-grid blur-dark-5 bubble tilt-animation">
+          <h2 class="title">Intern Software Engineer at Ecumen</h2>
+          <h5 class="date source-code-pro">Jun 2021 to Sep 2021</h5>
+        </div>
+      </div>
+      <div class="item-container">
+        <div class="item-grid blur-dark-5 bubble tilt-animation">
+          <h2 class="title">Starbucks Shift Lead at Target</h2>
+          <h5 class="date source-code-pro">Dec 2020 to Sep 2022</h5>
+          <div class="more-info">
+            <div class="content" data-animated>
+              <ul>
+                <li>Adhered to Target and Starbucks cleanliness standards and policies as well as followed Starbucks routines.</li>
+                <li>Manage the opening and closing procedures of the store, ensuring that all tasks are completed accurately and efficiently.</li>
+                <li>Train new employees and provide ongoing coaching and development for existing staff members.</li>
+                <li>Implement and maintain safety and health procedures, including proper sanitation and food handling practices.</li>
+                <li>Collaborate with other shift leads and managers to ensure consistent and efficient operations across all shifts and locations.</li>
+              </ul>
+            </div>
+            <label class="toggle" title="More info" data-distance="2">
+              <input type="checkbox" hidden>
+              <img alt="Down Arrow" src="/img/icons/solid/arrow-down-s.svg">
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="item-container">
+        <div class="item-grid blur-dark-5 bubble tilt-animation">
+          <h2 class="title">Project: Undergraduate Applied Research at SCSU</h2>
+          <h5 class="date source-code-pro">Fall 2019</h5>
+          <p>
+            Part of an agile team that developed a mobile app that allowed users to request lawn and snow services from a local provider, similar to Uber.
+          </p>
+          <div>
+            <h5 class="source-code-pro">Languages/Tools:</h5>
+            <p>AndroidStudio, Flutter/Dart, MongoDB, Xcode</p>
+          </div>
+        </div>
+      </div>
+      <div class="item-container">
+        <div class="item-grid blur-dark-5 bubble tilt-animation">
+          <h2 class="title">Starbucks Barista at Target</h2>
+          <h5 class="date source-code-pro">Aug 2018 to Dec 2020</h5>
+          <div class="more-info">
+            <div class="content" data-animated>
+              <ul>
+                <li>Utilized advanced communication and problem-solving skills to resolve customer complaints and maintain
+                  positive relationships with customers.</li>
+                <li>Provide excellent customer service by greeting customers, taking orders, and answering any questions they may have about the menu or ingredients.</li>
+                <li>Demonstrated flexibility and adaptability by working in a fast-paced environment and adjusting to changing
+                  customer demands and preferences.</li>
+                <li>Operate cash registers and other point-of-sale systems, handling cash and credit card transactions accurately and efficiently.</li>
+                <li>Maintained the highest standards of product quality, safety, and cleanliness, ensuring that the store was always
+                  in compliance with local and federal regulations.</li>
+              </ul>
+            </div>
+            <label class="toggle" title="More info" data-distance="2">
+              <input type="checkbox" hidden>
+              <img alt="Down Arrow" src="/img/icons/solid/arrow-down-s.svg">
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="item-container">
+        <div class="item-grid blur-dark-5 bubble tilt-animation">
+          <h2 class="title">Graduated High School</h2>
+          <h5 class="date source-code-pro">Jun 2018</h5>
+        </div>
+      </div>
+      <h4 class="item-year source-code-pro bubble-dark">2018</h4>
+    </div>
+    <div class="grid">
+      <div id="languages" class="blur-light-10 bubble-dark tilt-animation">
+        <h5 class="source-code-pro blur-dark-2 title">Languages:</h5>
+        <ul class="blur-dark-2">
+          <li>React (2 years)</li>
+          <li>JavaScript/ES5+ (3 years)</li>
+          <li>HTML (3 years)</li>
+          <li>Next.js (<1 year)</li>
+          <li>CSS (3 years)</li>
+          <li>JQuery (2 years)</li>
+          <li>SQL (3 years)</li>
+          <li>Node.js (1 year)</li>
+          <li>Dart/Flutter (1 year)</li>
+          <li>Java (5 years)</li>
+          <li>PHP (2 years)</li>
+          <li>C++ (2 years)</li>
+          <li>Python (2 years)</li>
+          <li>XML (2 years)</li>
+        </ul>
+      </div>
+      <div id="tools" class="blur-light-10 bubble-dark tilt-animation">
+        <h5 class="source-code-pro blur-dark-2 title">Skills/Tools:</h5>
+        <ul class="blur-dark-2">
+          <li>Agile/Scrum</li>
+          <li>AJAX</li>
+          <li>Android/Android Studio</li>
+          <li>APIs</li>
+          <li>Babel</li>
+          <li>Continuous Integration</li>
+          <li>Cypress</li>
+          <li>Eclipse</li>
+          <li>Express</li>
+          <li>Figma</li>
+          <li>Flask</li>
+          <li>GitHub</li>
+          <li>IntelliJ IDEs</li>
+          <li>iOS</li>
+          <li>Jira</li>
+          <li>Linux</li>
+          <li>MacOS</li>
+          <li>MaterialUI</li>
+          <li>npm</li>
+          <li>Responsive Design</li>
+          <li>Tensorflow (machine learning)</li>
+          <li>UI Design</li>
+          <li>UML</li>
+          <li>VSCode</li>
+          <li>Webpack</li>
+          <li>Windows</li>
+          <li>Wordpress</li>
+          <li>Xcode</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+<footer id="connect" class="blur-dark-10">
+ <div class="container">
+   <h1 class="heading">Connect</h1>
+   <div class="link-grid">
+     <a class="bubble shadow" role="button" title="LinkedIn" data-distance="10" href="https://www.linkedin.com/in/vincent~zimmer" target="_blank" rel="noopener noreferrer">
+       <img src="/img/icons/solid/linkedin.svg" alt="LinkedIn Icon">
+       <p class="source-code-pro mobile">LinkedIn</p>
+     </a>
+     <hr>
+     <a class="bubble shadow" role="button" title="GitHub" data-distance="10" href="https://github.com/Unknown622" target="_blank" rel="noopener noreferrer">
+       <img src="/img/icons/solid/github.svg" alt="GitHub Icon">
+       <p class="source-code-pro mobile">GitHub</p>
+     </a>
+     <hr>
+     <a class="bubble shadow" role="button" title="Send email" data-distance="10" href="mailto:vlz12@yahoo.com">
+       <img src="/img/icons/solid/mail.svg" alt="Email Icon">
+       <p class="source-code-pro mobile">Send email</p>
+     </a>
+     <hr>
+     <a class="bubble shadow" role="button" title="Call phone number" data-distance="10" href="tel:7633012865">
+       <img src="/img/icons/solid/phone.svg" alt="Phone Icon">
+       <p class="source-code-pro mobile">Call phone number</p>
+     </a>
+     <hr>
+     <a class="bubble shadow" role="button" title="Download resume" data-distance="10" href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+       <img src="/img/icons/solid/file-download.svg" alt="File Download Icon">
+       <p class="source-code-pro mobile">Download resume</p>
+     </a>
+   </div>
+ </div>
+</footer>
+</body>
+
+</html>
